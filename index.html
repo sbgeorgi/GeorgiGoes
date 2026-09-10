@@ -35,54 +35,11 @@
     button{color:inherit}
     #app{position:relative;width:100%;height:100%;background:var(--paper);overflow:hidden}
 
-    /* DESKTOP COMPOSITION */
-    .editorial{
-      position:absolute;z-index:15;left:0;top:0;bottom:0;width:390px;
-      padding:28px 30px 26px;background:rgba(246,243,236,.97);
-      border-right:1px solid var(--rule);display:flex;flex-direction:column;
-    }
-    .mast{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-      padding-bottom:16px;border-bottom:1px solid var(--rule);
-    }
     .wordmark{font-size:11px;font-weight:650;letter-spacing:.18em;text-transform:uppercase}
-    .mast-meta{font-size:11px;color:var(--muted)}
-    .hero{padding:31px 0 22px}
     .kicker{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-    .hero h1{
-      margin:12px 0 12px;font-family:var(--serif);font-weight:400;
-      font-size:60px;line-height:.90;letter-spacing:-.035em;
-    }
-    .hero h1 em{font-weight:400;color:var(--accent)}
-    .hero p{margin:0;max-width:300px;font-size:14px;line-height:1.52;color:var(--muted)}
-    .status-line{
-      display:flex;align-items:center;gap:8px;margin-top:20px;
-      font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)
-    }
-    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .numbers{border-top:1px solid var(--rule)}
-    .number-row{
-      display:grid;grid-template-columns:1fr auto;gap:20px;align-items:baseline;
-      padding:13px 0;border-bottom:1px solid var(--rule)
-    }
-    .number-label{font-size:12px;color:var(--muted)}
-    .number-value{font-family:var(--serif);font-size:31px;letter-spacing:-.03em}
-    .progress-track{height:2px;background:var(--rule);margin-top:18px;overflow:hidden}
-    .progress-fill{height:100%;width:0;background:var(--accent);transition:width .4s ease}
-    .progress-caption{display:flex;justify-content:space-between;margin-top:7px;font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.12em}
-
-    .rail-bottom{margin-top:auto;border-top:1px solid var(--rule);padding-top:14px}
-    .rail-actions{display:flex;justify-content:space-between;align-items:center;gap:12px}
-    .text-btn{
-      appearance:none;border:0;background:none;padding:0;cursor:pointer;
-      font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)
-    }
-    .text-btn:hover{color:var(--ink)}
-    .visitor{font-size:11px;color:var(--faint)}
-    .visitor strong{color:var(--ink);font-weight:650}
 
     /* MAP */
-    .map-stage{position:absolute;left:390px;right:0;top:0;bottom:0;background:#d9ded8}
+    .map-stage{position:absolute;inset:0;background:#d9ded8}
     #map{position:absolute;inset:0}
     .maplibregl-canvas{filter:saturate(.72) contrast(.96) brightness(1.06)}
     .maplibregl-ctrl-attrib{background:rgba(246,243,236,.86)!important;color:#575952!important;font-size:10px!important}
@@ -112,22 +69,6 @@
       border:1px solid rgba(22,23,19,.11);padding:9px 12px;font-size:10px;letter-spacing:.10em;
       text-transform:uppercase;color:var(--muted);backdrop-filter:blur(10px)
     }
-
-    /* STORY STRIP */
-    .story-strip{
-      position:absolute;z-index:9;left:24px;right:24px;bottom:24px;
-      display:flex;gap:10px;overflow:auto;scrollbar-width:none;pointer-events:auto;
-    }
-    .story-strip::-webkit-scrollbar{display:none}
-    .story-chip{
-      min-width:220px;max-width:260px;background:rgba(246,243,236,.94);
-      border:1px solid rgba(22,23,19,.11);padding:14px;cursor:pointer;
-      box-shadow:0 10px 28px rgba(39,35,26,.08);backdrop-filter:blur(10px)
-    }
-    .story-chip .date{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
-    .story-chip .note{font-family:var(--serif);font-size:19px;line-height:1.08;margin-top:6px}
-    .story-chip .meta{font-size:10px;color:var(--muted);margin-top:9px}
-    .story-chip:hover{border-color:rgba(232,95,54,.45)}
 
     /* OWNER FAB */
     .ping-fab{
@@ -162,45 +103,11 @@
     .fan-card:nth-child(1){left:2px;transform:rotate(-8deg)}.fan-card:nth-child(2){left:23px;transform:rotate(1deg)}.fan-card:nth-child(3){left:43px;transform:rotate(8deg)}
     .fan-more{position:absolute;right:-2px;bottom:-4px;background:var(--ink);color:var(--paper);padding:2px 5px;font-size:9px}
 
-    /* MOBILE */
-    .mobile-head{display:none}
-    .sheet{
-      display:none;position:absolute;z-index:11;left:10px;right:10px;bottom:10px;
-      height:120px;background:rgba(246,243,236,.96);border:1px solid rgba(22,23,19,.12);
-      box-shadow:var(--shadow);overflow:hidden;transition:height .32s cubic-bezier(.2,.8,.2,1)
-    }
-    .sheet.detail{height:min(58dvh,560px)}
-    .sheet.story{height:calc(100dvh - 20px)}
-    .sheet-scroll{height:100%;overflow:auto;scrollbar-width:none;padding-bottom:calc(12px + var(--safe-bottom))}
-    .sheet-scroll::-webkit-scrollbar{display:none}
-    .sheet-handle{position:sticky;top:0;background:rgba(246,243,236,.98);z-index:3;padding:9px 0 5px}
-    .sheet-handle:after{content:"";display:block;width:34px;height:3px;background:#c1bdb3;margin:auto}
-    .sheet-peek{padding:6px 16px 16px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
-    .sheet-kicker{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.13em}
-    .sheet-title{font-family:var(--serif);font-size:23px;line-height:1;margin-top:4px}
-    .sheet-meta{font-size:10px;color:var(--muted);margin-top:6px}
-    .sheet-progress{font-family:var(--serif);font-size:40px}
-    .sheet-more{display:none;padding:2px 16px 24px}
-    .sheet.detail .sheet-more,.sheet.story .sheet-more{display:block}
-    .sheet-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-    .sheet-stat{padding:12px 8px 12px 0}
-    .sheet-stat+.sheet-stat{border-left:1px solid var(--rule);padding-left:12px}
-    .sheet-stat strong{display:block;font-family:var(--serif);font-size:25px;font-weight:400}
-    .sheet-stat span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.10em;color:var(--faint);margin-top:2px}
     .section-label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--faint);margin:18px 0 9px}
     #elevationSvg{width:100%;height:115px;display:block}
-    .day-list{display:flex;gap:8px;overflow:auto;scrollbar-width:none}
-    .day-list::-webkit-scrollbar{display:none}
+    .day-list{display:flex;gap:8px;overflow:auto;scrollbar-width:none}.day-list::-webkit-scrollbar{display:none}
     .day{min-width:132px;border-top:1px solid var(--ink);padding-top:7px}
     .day b{font-size:11px}.day strong{display:block;font-family:var(--serif);font-size:23px;font-weight:400;margin-top:6px}.day small{font-size:10px;color:var(--muted)}
-    .diary{display:grid;gap:0}
-    .diary-item{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--rule);cursor:pointer}
-    .diary-thumb{width:70px;height:64px;background:#dedbd3;overflow:hidden}
-    .diary-thumb img{width:100%;height:100%;object-fit:cover}
-    .diary-time{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
-    .diary-note{font-family:var(--serif);font-size:18px;line-height:1.08;margin-top:4px}
-    .diary-meta{font-size:10px;color:var(--muted);margin-top:7px}
-
 
     /* INTERACTION / ANALYTICS UPGRADE */
     .kpi-grid{
@@ -290,66 +197,18 @@
     .edit-add{margin-top:8px;width:100%;border:1px dashed #bcb8ae;background:transparent;padding:12px;cursor:pointer;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
 
 
-    /* CHECKPOINT NAVIGATION */
-    .checkpoint-nav-block{margin-top:19px}
-    .checkpoint-nav-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:10px}
-    .checkpoint-nav-title{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--faint)}
-    .checkpoint-nav-meta{font-size:10px;color:var(--muted);margin-top:4px}
-    .checkpoint-nav-actions{display:flex;align-items:center;gap:5px}
-    .checkpoint-icon-btn,.checkpoint-view-btn{
-      appearance:none;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;
-      height:32px;display:grid;place-items:center
-    }
-    .checkpoint-icon-btn{width:32px;font-family:var(--serif);font-size:20px;line-height:1}
-    .checkpoint-view-btn{padding:0 9px;font-size:8px;text-transform:uppercase;letter-spacing:.10em}
-    .checkpoint-view-btn.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-    .checkpoint-icon-btn:disabled{opacity:.28;cursor:default}
-    .checkpoint-carousel{
-      display:flex;gap:9px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-      scroll-padding:0 1px;scrollbar-width:none;padding:0 0 5px;touch-action:pan-x
-    }
-    .checkpoint-carousel::-webkit-scrollbar{display:none}
-    .checkpoint-card{
-      position:relative;scroll-snap-align:start;flex:0 0 min(88%,390px);min-height:142px;
-      border:1px solid var(--rule);background:rgba(246,243,236,.82);padding:14px;cursor:pointer;
-      display:grid;grid-template-columns:1fr 82px;gap:13px;transition:border-color .18s ease,background .18s ease
-    }
-    .checkpoint-card.active{border-color:var(--ink);background:#fbf9f4}
-    .checkpoint-card.offtrail{background:#f0ede6;color:#696b65}
-    .checkpoint-card.offtrail.active{border-color:#7f817b}
-    .checkpoint-card-copy{min-width:0}
-    .checkpoint-card-top{display:flex;align-items:center;gap:8px;margin-bottom:13px}
-    .checkpoint-number{font-family:var(--serif);font-size:35px;line-height:.8;letter-spacing:-.04em;color:var(--ink)}
-    .checkpoint-card.offtrail .checkpoint-number{color:#777a73}
-    .trail-badge{
-      display:inline-flex;align-items:center;gap:5px;border:1px solid #b9c8bd;color:var(--green);
-      padding:4px 6px;font-size:7px;text-transform:uppercase;letter-spacing:.10em;white-space:nowrap
-    }
-    .trail-badge:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green)}
-    .trail-badge.off{border-color:#c9c5bb;color:#777a73}
-    .trail-badge.off:before{background:#8b8d87}
-    .checkpoint-card-date{font-size:8px;text-transform:uppercase;letter-spacing:.11em;color:var(--faint)}
-    .checkpoint-card-note{
-      font-family:var(--serif);font-size:20px;line-height:1.06;margin-top:5px;
-      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden
-    }
-    .checkpoint-card-meta{font-size:9px;color:var(--muted);margin-top:9px}
-    .checkpoint-cover{width:82px;height:108px;background:#dfdcd4;overflow:hidden;align-self:center}
-    .checkpoint-cover img{width:100%;height:100%;object-fit:cover;display:block}
-    .checkpoint-cover.empty{display:grid;place-items:center;font-family:var(--serif);font-size:25px;color:#aaa79e}
     .checkpoint-list-view{border-top:1px solid var(--rule)}
-    .checkpoint-list-item{
-      display:grid;grid-template-columns:43px 1fr auto;gap:10px;align-items:center;
-      padding:11px 0;border-bottom:1px solid var(--rule);cursor:pointer
-    }
+    .checkpoint-list-item{display:grid;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--rule);cursor:pointer}
     .checkpoint-list-item.active{background:rgba(255,255,255,.40)}
     .checkpoint-list-no{font-family:var(--serif);font-size:25px}
     .checkpoint-list-copy{min-width:0}
     .checkpoint-list-copy strong{display:block;font-family:var(--serif);font-size:17px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .checkpoint-list-copy span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}
-    .checkpoint-list-status{font-size:7px;text-transform:uppercase;letter-spacing:.09em;color:var(--green);text-align:right}
-    .checkpoint-list-status.off{color:#858780}
-    .checkpoint-gate-note{font-size:9px;line-height:1.45;color:var(--faint);margin-top:8px}
+    .checkpoint-list-status{font-size:7px;text-transform:uppercase;letter-spacing:.09em;color:var(--green);text-align:right}.checkpoint-list-status.off{color:#858780}
+    .checkpoint-icon-btn{appearance:none;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;width:32px;height:32px;display:grid;place-items:center;font-family:var(--serif);font-size:20px;line-height:1}
+    .checkpoint-icon-btn:disabled{opacity:.28;cursor:default}
+    .trail-badge{display:inline-flex;align-items:center;gap:5px;border:1px solid #b9c8bd;color:var(--green);padding:4px 6px;font-size:7px;text-transform:uppercase;letter-spacing:.10em;white-space:nowrap}
+    .trail-badge:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green)}.trail-badge.off{border-color:#c9c5bb;color:#777a73}.trail-badge.off:before{background:#8b8d87}
 
     /* SELECTED CHECKPOINT PHOTO CAROUSEL */
     .selected-photo-wrap{margin-top:13px}
@@ -386,25 +245,31 @@
       .checkpoint-nav-actions{flex-wrap:wrap;justify-content:flex-end}
     }
 
-    @media(max-width:800px){
-      .sheet{
-        display:block!important;height:calc(100dvh - 20px)!important;bottom:10px!important;
-        transform:translateY(calc(100% - 120px));transition:transform .32s cubic-bezier(.2,.8,.2,1)!important;
-        will-change:transform
-      }
-      .sheet.dragging{transition:none!important}
-      .sheet.detail,.sheet.story{height:calc(100dvh - 20px)!important}
-      .sheet-handle{touch-action:none;cursor:grab;padding:10px 0 7px}
-      .sheet-handle:active{cursor:grabbing}
-      .sheet-peek{touch-action:pan-x}
-      .sheet .sheet-more{display:block}
-      .sheet[data-snap="peek"] .sheet-more{display:none}
-      .sheet-scroll{overscroll-behavior:contain}
-      .ping-fab{display:none}
-      .ping-fab.show{display:grid}
-      .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .ping-photo-grid,.edit-media-grid,.capture-media-grid,.review-media-grid{grid-template-columns:repeat(3,1fr)}
-    }
+    /* MAP-NATIVE PUBLIC UI */
+    .editorial{display:none!important}.map-stage{left:0!important}.mobile-head{display:none!important}
+    .map-header{position:absolute;z-index:12;top:var(--safe-top);left:16px;right:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;pointer-events:none}
+    .map-header>*{pointer-events:auto}.map-brand{background:rgba(246,243,236,.94);border:1px solid rgba(22,23,19,.10);padding:10px 12px;box-shadow:0 8px 24px rgba(37,33,25,.07);backdrop-filter:blur(10px)}
+    .map-brand-sub{font-family:var(--serif);font-size:20px;line-height:1;margin-top:3px}.map-header-actions{display:flex;align-items:center;gap:6px}
+    .map-action{min-width:42px;height:40px;padding:0 11px;border:1px solid rgba(22,23,19,.11);background:rgba(246,243,236,.94);box-shadow:0 8px 24px rgba(37,33,25,.06);backdrop-filter:blur(10px);cursor:pointer;font-size:9px;text-transform:uppercase;letter-spacing:.10em}
+    .map-action.icon{width:40px;padding:0;font-size:15px}.visitor-map{height:40px;display:flex;align-items:baseline;gap:5px;padding:0 10px;border:1px solid rgba(22,23,19,.11);background:rgba(246,243,236,.94);box-shadow:0 8px 24px rgba(37,33,25,.06);backdrop-filter:blur(10px)}
+    .visitor-map strong{font-family:var(--serif);font-size:20px;font-weight:400}.visitor-map span{font-size:8px;text-transform:uppercase;letter-spacing:.09em;color:var(--faint)}
+    .map-top{top:calc(var(--safe-top) + 54px);right:16px}.preview-label{left:16px;bottom:118px}
+    .map-checkpoint-nav{position:absolute;z-index:11;left:14px;right:14px;bottom:14px;display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:7px;align-items:center}
+    .rail-arrow{width:34px;height:84px;border:1px solid rgba(22,23,19,.11);background:rgba(246,243,236,.95);box-shadow:0 8px 24px rgba(37,33,25,.07);backdrop-filter:blur(10px);cursor:pointer;font-family:var(--serif);font-size:22px}.rail-arrow:disabled{opacity:.35}
+    .map-checkpoint-rail{display:flex;gap:7px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;touch-action:pan-x;padding:1px}.map-checkpoint-rail::-webkit-scrollbar{display:none}
+    .map-rail-card{flex:0 0 230px;height:84px;scroll-snap-align:start;display:grid;grid-template-columns:38px 72px 1fr;gap:9px;align-items:center;padding:8px 9px;border:1px solid rgba(22,23,19,.12);background:rgba(246,243,236,.95);box-shadow:0 8px 24px rgba(37,33,25,.07);backdrop-filter:blur(10px);cursor:pointer}
+    .map-rail-card.active{border-color:var(--ink);background:#fffdfa}.map-rail-card.offtrail{color:#72746d;background:rgba(239,236,229,.96)}.map-rail-no{font-family:var(--serif);font-size:28px;line-height:1}
+    .rail-thumbs{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:2px;width:72px;height:66px}.rail-thumb{background:#dcd9d1;overflow:hidden}.rail-thumb img{width:100%;height:100%;object-fit:cover;display:block}.rail-thumbs.count-1 .rail-thumb:first-child{grid-column:1/3;grid-row:1/3}.rail-thumbs.count-2 .rail-thumb{grid-row:1/3}.rail-thumbs.count-3 .rail-thumb:first-child{grid-row:1/3}.rail-thumb.empty{grid-column:1/3;grid-row:1/3;display:grid;place-items:center;font-family:var(--serif);font-size:22px;color:#aaa79e}
+    .rail-copy{min-width:0}.rail-status{font-size:7px;text-transform:uppercase;letter-spacing:.10em;color:var(--green)}.offtrail .rail-status{color:#7d7f78}.rail-title{font-family:var(--serif);font-size:15px;line-height:1.05;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rail-meta{font-size:8px;color:var(--muted);margin-top:5px;white-space:nowrap}
+    .map-panel{position:absolute;z-index:13;left:50%;bottom:108px;transform:translateX(-50%);width:min(720px,calc(100% - 28px));height:min(48vh,500px);min-height:230px;background:rgba(246,243,236,.97);border:1px solid rgba(22,23,19,.13);box-shadow:0 18px 50px rgba(42,38,29,.13);backdrop-filter:blur(14px);overflow:hidden}.map-panel.dragging{transition:none}
+    .map-panel-handle{height:18px;display:grid;place-items:center;cursor:ns-resize;touch-action:none}.map-panel-handle i{display:block;width:34px;height:3px;background:#c4c0b7}.map-panel-top{height:42px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);padding:0 10px 0 12px}
+    .surface-tabs{display:flex;gap:14px}.surface-tab{border:0;background:none;padding:0;cursor:pointer;font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:var(--faint)}.surface-tab.active{color:var(--ink)}.panel-close{border:0;background:none;font-size:22px;line-height:1;color:var(--muted);cursor:pointer}
+    .map-panel-body{height:calc(100% - 60px);overflow:auto;overscroll-behavior:contain;scrollbar-width:none;padding:14px}.map-panel-body::-webkit-scrollbar{display:none}.surface{display:none}.surface.active{display:block}.panel-section{margin-top:16px}.panel-section-title{font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:var(--faint);margin-bottom:7px}.gate-note{margin-top:12px;font-size:9px;line-height:1.45;color:var(--faint)}
+    .list-heading{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}.list-heading strong{display:block;font-family:var(--serif);font-size:23px;font-weight:400}.list-heading span{display:block;font-size:9px;color:var(--muted);margin-top:2px}
+    .checkpoint-detail{margin-top:0;border-top:0;padding-top:0}.checkpoint-detail h3{font-size:27px}.ping-metrics{grid-template-columns:repeat(3,1fr)}.selected-photo-wrap{margin-top:12px}.selected-photo-track{border:1px solid var(--rule);background:#dedbd3}.selected-photo-slide{aspect-ratio:16/9}
+    .checkpoint-list-view{border-top:1px solid var(--rule)}.checkpoint-list-item{grid-template-columns:36px 64px 1fr auto}.list-thumbs{width:64px;height:48px;display:flex;gap:2px;overflow:hidden}.list-thumbs img{width:50%;height:100%;object-fit:cover;min-width:0}.list-thumbs img:only-child{width:100%}.list-thumbs.empty{background:#ddd9d1;display:grid;place-items:center;font-family:var(--serif);color:#aaa79e}
+    .ping-fab{right:18px;bottom:112px}
+    @media(max-width:700px){.map-header{left:10px;right:10px}.map-brand{padding:9px 10px}.map-brand-sub{font-size:18px}.visitor-map{display:none}.map-header-actions{gap:4px}.map-action{padding:0 9px;min-width:38px;height:38px}.map-action.icon{width:38px;height:38px}.map-top{top:calc(var(--safe-top) + 50px);right:10px}.map-top .plain-btn:not(.icon){display:none}.map-checkpoint-nav{left:8px;right:8px;bottom:8px;grid-template-columns:0 minmax(0,1fr) 0;gap:0}.rail-arrow{display:none}.map-rail-card{flex-basis:min(82vw,275px);height:88px;grid-template-columns:34px 78px 1fr}.rail-thumbs{width:78px;height:70px}.map-panel{bottom:104px;width:calc(100% - 16px);height:min(48dvh,470px);min-height:220px}.preview-label{left:10px;bottom:108px}.ping-fab{right:14px;bottom:108px;width:58px;height:58px}.ping-metrics{grid-template-columns:repeat(3,1fr)}.map-panel-body{padding:12px}.checkpoint-list-item{grid-template-columns:32px 58px 1fr}.checkpoint-list-status{display:none}.list-thumbs{width:58px;height:44px}}
 
     /* MODALS */
     .modal-wrap{
@@ -482,28 +347,6 @@
     .hidden{display:none!important}
 
     @media(max-width:800px){
-      .editorial{display:none}
-      .map-stage{left:0}
-      .mobile-head{
-        display:flex;position:absolute;z-index:10;top:var(--safe-top);left:14px;right:14px;
-        align-items:flex-start;justify-content:space-between;gap:14px;pointer-events:none
-      }
-      .mobile-head>*{pointer-events:auto}
-      .mobile-brand{
-        background:rgba(246,243,236,.93);border:1px solid rgba(22,23,19,.11);padding:10px 12px;
-        box-shadow:0 8px 22px rgba(34,31,24,.07);backdrop-filter:blur(8px)
-      }
-      .mobile-brand .wordmark{font-size:10px}
-      .mobile-brand .mobile-sub{font-family:var(--serif);font-size:20px;line-height:1;margin-top:3px}
-      .mobile-actions{display:flex;gap:7px}
-      .mobile-actions .plain-btn{height:40px;background:rgba(246,243,236,.93)}
-      .map-top{top:calc(var(--safe-top) + 66px);right:14px}
-      .map-top .plain-btn:not(.icon){display:none}
-      .preview-label{left:14px;bottom:142px}
-      .story-strip{display:none}
-      .sheet{display:block}
-      .ping-fab{right:18px;bottom:145px;width:60px;height:60px}
-      .maplibregl-ctrl-bottom-right{bottom:132px}
       .modal-wrap{align-items:end;padding:8px}
       .modal{width:100%;max-height:calc(100dvh - 8px);padding:20px;border:none;border-top:1px solid var(--rule)}
       .modal h2{font-size:38px}
@@ -515,50 +358,22 @@
 </head>
 <body>
 <div id="app">
-  <aside class="editorial">
-    <div class="mast">
-      <div class="wordmark">George / Portugal / 2026</div>
-      <div class="mast-meta" id="desktopDate">Sep 10—16</div>
-    </div>
-
-    <div class="hero">
-      <div class="kicker">Field diary · live</div>
-      <h1>Atlantic<br><em>on foot.</em></h1>
-      <p id="tripSubtitleRail">A live walk along Portugal’s Fisherman’s Trail — locations, photographs, small notes and whatever the coast decides to throw at me.</p>
-      <div class="status-line"><span class="status-dot"></span><span id="desktopStatus">waiting for the first checkpoint</span></div>
-    </div>
-
-    <div class="numbers">
-      <div class="number-row"><div class="number-label">Trail progress</div><div class="number-value" id="railProgress">0.0 km</div></div>
-      <div class="number-row"><div class="number-label">Remaining</div><div class="number-value" id="railRemaining">—</div></div>
-      <div class="number-row"><div class="number-label">Latest elevation</div><div class="number-value" id="railElevation">—</div></div>
-      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-caption"><span id="progressLeft">0%</span><span id="progressRight">route</span></div>
-    </div>
-
-    <div class="rail-bottom">
-      <div class="rail-actions">
-        <div class="visitor"><strong id="visitorCount">—</strong> visitors</div>
-        <div style="display:flex;gap:14px">
-          <button class="text-btn" id="shareBtn">Share</button>
-          <button class="text-btn" id="ownerBtn">Owner</button>
-        </div>
-      </div>
-    </div>
-  </aside>
 
   <section class="map-stage">
     <div id="map"></div>
     <div class="map-fade"></div>
 
-    <div class="mobile-head">
-      <div class="mobile-brand">
+    <div class="map-header">
+      <div class="map-brand">
         <div class="wordmark">George walks Portugal</div>
-        <div class="mobile-sub">Atlantic on foot.</div>
+        <div class="map-brand-sub">Atlantic on foot.</div>
       </div>
-      <div class="mobile-actions">
-        <button class="plain-btn icon" id="mobileShare" aria-label="Share">↗</button>
-        <button class="plain-btn icon" id="mobileOwner" aria-label="Owner">···</button>
+      <div class="map-header-actions">
+        <div class="visitor-map"><strong id="visitorCount">—</strong><span>visitors</span></div>
+        <button class="map-action" id="statsOpenBtn">Stats</button>
+        <button class="map-action" id="listOpenBtn">List</button>
+        <button class="map-action icon" id="shareBtn" aria-label="Share">↗</button>
+        <button class="map-action icon" id="ownerBtn" aria-label="Owner">···</button>
       </div>
     </div>
 
@@ -570,67 +385,48 @@
       </div>
 
       <div class="preview-label hidden" id="previewLabel">preview route · upload GPX in owner mode</div>
-      <div class="story-strip" id="storyStrip"></div>
+
+      <div class="map-checkpoint-nav" id="mapCheckpointNav">
+        <button class="rail-arrow" id="mapCheckpointPrev" aria-label="Previous checkpoint">‹</button>
+        <div class="map-checkpoint-rail" id="mapCheckpointRail"></div>
+        <button class="rail-arrow" id="mapCheckpointNext" aria-label="Next checkpoint">›</button>
+      </div>
 
       <button class="ping-fab" id="pingFab" aria-label="Ping location">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>
       </button>
     </div>
 
-    <section class="sheet" id="sheet" data-snap="peek">
-      <div class="sheet-scroll">
-        <div class="sheet-handle" id="sheetHandle" aria-label="Drag trip details"></div>
-        <div class="sheet-peek" id="sheetPeek">
-          <div>
-            <div class="sheet-kicker">Live field diary</div>
-            <div class="sheet-title" id="sheetTitle">The Atlantic is waiting.</div>
-            <div class="sheet-meta" id="sheetMeta">first checkpoint starts the story</div>
-          </div>
-          <div class="sheet-progress" id="sheetProgress">0%</div>
+    <section class="map-panel hidden" id="mapPanel" data-surface="summary">
+      <div class="map-panel-handle" id="mapPanelHandle"><i></i></div>
+      <div class="map-panel-top">
+        <div class="surface-tabs">
+          <button class="surface-tab active" data-surface-tab="summary">Summary</button>
+          <button class="surface-tab" data-surface-tab="stats">Stats</button>
+          <button class="surface-tab" data-surface-tab="list">List</button>
         </div>
-
-        <div class="sheet-more">
-          <div class="section-label">Trip at a glance</div>
-          <div class="kpi-grid">
-            <div class="kpi"><strong id="kDistance">0.0</strong><span>km completed</span><small>along planned route</small></div>
-            <div class="kpi"><strong id="kRemain">—</strong><span>km remaining</span><small>to route finish</small></div>
-            <div class="kpi"><strong id="kToday">0.0</strong><span>km today</span><small>between today's pings</small></div>
-            <div class="kpi"><strong id="kGain">0</strong><span>m elevation gain</span><small>route estimate to here</small></div>
-            <div class="kpi"><strong id="kElapsed">—</strong><span>elapsed</span><small>first → latest ping</small></div>
-            <div class="kpi"><strong id="kDays">0</strong><span>active days</span><small>days with checkpoints</small></div>
+        <button class="panel-close" id="mapPanelClose" aria-label="Close panel">×</button>
+      </div>
+      <div class="map-panel-body">
+        <div class="surface active" data-surface="summary"><div id="selectedPingDetail"></div></div>
+        <div class="surface" data-surface="stats">
+          <div class="kpi-grid compact">
+            <div class="kpi"><strong id="kDistance">0.0</strong><span>km completed</span><small>along route</small></div>
+            <div class="kpi"><strong id="kRemain">—</strong><span>km remaining</span><small>to finish</small></div>
+            <div class="kpi"><strong id="kToday">0.0</strong><span>km today</span><small>trail pings only</small></div>
+            <div class="kpi"><strong id="kGain">0</strong><span>m gain</span><small>route estimate</small></div>
+            <div class="kpi"><strong id="kElapsed">—</strong><span>elapsed</span><small>trail time span</small></div>
+            <div class="kpi"><strong id="kDays">0</strong><span>active days</span><small>on trail</small></div>
             <div class="kpi"><strong id="kPings">0</strong><span>trail checkpoints</span><small id="kPingsSub">off-trail excluded</small></div>
-            <div class="kpi"><strong id="kPhotos">0</strong><span>trail photos</span><small>from on-trail checkpoints</small></div>
+            <div class="kpi"><strong id="kPhotos">0</strong><span>trail photos</span><small>on-trail only</small></div>
           </div>
-
-
-          <div class="checkpoint-nav-block">
-            <div class="checkpoint-nav-head">
-              <div>
-                <div class="checkpoint-nav-title">Checkpoints</div>
-                <div class="checkpoint-nav-meta" id="checkpointNavMeta">No checkpoints yet</div>
-              </div>
-              <div class="checkpoint-nav-actions">
-                <button class="checkpoint-view-btn active" id="checkpointCardsBtn">Cards</button>
-                <button class="checkpoint-view-btn" id="checkpointListBtn">List</button>
-                <button class="checkpoint-icon-btn" id="checkpointPrev" aria-label="Previous checkpoint">‹</button>
-                <button class="checkpoint-icon-btn" id="checkpointNext" aria-label="Next checkpoint">›</button>
-              </div>
-            </div>
-            <div class="checkpoint-carousel" id="checkpointCarousel"></div>
-            <div class="checkpoint-list-view hidden" id="checkpointListView"></div>
-            <div class="checkpoint-gate-note" id="checkpointGateNote"></div>
-          </div>
-
-          <div id="selectedPingDetail"></div>
-
-          <div class="section-label">Elevation story</div>
-          <svg id="elevationSvg" viewBox="0 0 600 120" preserveAspectRatio="none"></svg>
-
-          <div class="section-label">Days on trail</div>
-          <div class="day-list" id="days"></div>
-
-          <div class="section-label">Chronological diary</div>
-          <div class="diary" id="diary"></div>
+          <div class="panel-section"><div class="panel-section-title">Elevation</div><svg id="elevationSvg" viewBox="0 0 600 120" preserveAspectRatio="none"></svg></div>
+          <div class="panel-section"><div class="panel-section-title">Days</div><div class="day-list" id="days"></div></div>
+          <div class="gate-note" id="checkpointGateNote"></div>
+        </div>
+        <div class="surface" data-surface="list">
+          <div class="list-heading"><div><strong>All checkpoints</strong><span id="checkpointNavMeta">chronological</span></div></div>
+          <div class="checkpoint-list-view" id="checkpointListView"></div>
         </div>
       </div>
     </section>
@@ -968,7 +764,6 @@
       try{state.map.addSource("terrain",{type:"raster-dem",url:"https://tiles.mapterhorn.com/tilejson.json",tileSize:256});state.map.setTerrain({source:"terrain",exaggeration:1.10})}catch{}
       buildLayers();fitInitial();await buildElevation();renderAll();setTimeout(()=>$("#loading").classList.add("hide"),120)
     });
-    state.map.on("dragstart",()=>innerWidth<800&&setSheetSnap("peek"));
   }
 
   function buildLayers(){
@@ -1007,7 +802,7 @@
   function fitInitial(){
     if(!state.map)return;
     const coords=state.route?.geometry?.coordinates||[],b=new maplibregl.LngLatBounds();coords.forEach(c=>b.extend(c));
-    if(!b.isEmpty())state.map.fitBounds(b,{padding:{top:80,bottom:100,left:innerWidth>800?40:30,right:30},duration:850,maxZoom:11})
+    if(!b.isEmpty())state.map.fitBounds(b,{padding:{top:90,bottom:120,left:30,right:30},duration:850,maxZoom:11})
   }
 
   function updateWalker(){
@@ -1020,7 +815,7 @@
     if(photos.length){
       const fan=document.createElement("div");fan.className="photo-fan";
       fan.innerHTML=photos.slice(0,3).map(m=>`<div class="fan-card"><img src="${mediaUrl(m.storage_path)}" alt=""></div>`).join("")+(photos.length>3?`<div class="fan-more">+${photos.length-3}</div>`:"");
-      fan.onclick=e=>{e.stopPropagation();selectPing(p.id);openGallery(photos,0)};el.appendChild(fan)
+      fan.onclick=e=>{e.stopPropagation();selectPing(p.id,{openSummary:true})};el.appendChild(fan)
     }
     state.walker=new maplibregl.Marker({element:el,anchor:"bottom"}).setLngLat([p.lon,p.lat]).addTo(state.map);
   }
@@ -1242,206 +1037,28 @@
     }
   }
 
-  function sheetMetrics(){
-    const full=Math.max(300,innerHeight-20),peek=Math.max(0,full-120),mid=Math.max(0,full-Math.min(innerHeight*.64,620));
-    return {full,peek,mid,top:0}
-  }
-  function setSheetSnap(name,animate=true){
-    if(innerWidth>800)return;
-    const sheet=$("#sheet"),m=sheetMetrics();
-    const y=name==="full"?m.top:name==="mid"?m.mid:m.peek;
-    sheet.dataset.snap=name;sheet._sheetY=y;
-    sheet.classList.toggle("dragging",!animate);
-    sheet.style.transform=`translateY(${y}px)`;
-    if(!animate)requestAnimationFrame(()=>sheet.classList.remove("dragging"));
-  }
-  function setupSheetDrag(){
-    const sheet=$("#sheet"),handle=$("#sheetHandle"),peek=$("#sheetPeek");if(!sheet||!handle)return;
-    setSheetSnap("peek",false);
-    let active=false,startY=0,startSheetY=0,lastY=0,moved=false;
-    const down=e=>{
-      if(innerWidth>800)return;
-      active=true;moved=false;startY=lastY=e.clientY;startSheetY=Number.isFinite(sheet._sheetY)?sheet._sheetY:sheetMetrics().peek;
-      sheet.classList.add("dragging");handle.setPointerCapture?.(e.pointerId);e.preventDefault()
-    };
-    const move=e=>{
-      if(!active)return;
-      const m=sheetMetrics();lastY=e.clientY;const next=Math.max(m.top,Math.min(m.peek,startSheetY+(e.clientY-startY)));
-      if(Math.abs(e.clientY-startY)>5)moved=true;
-      sheet._sheetY=next;sheet.style.transform=`translateY(${next}px)`;e.preventDefault()
-    };
-    const up=e=>{
-      if(!active)return;active=false;sheet.classList.remove("dragging");
-      const m=sheetMetrics(),dy=lastY-startY,current=sheet._sheetY;
-      let target;
-      if(Math.abs(dy)>55){
-        const snaps=[["full",m.top],["mid",m.mid],["peek",m.peek]];
-        const idx=snaps.reduce((best,x,i)=>Math.abs(x[1]-startSheetY)<Math.abs(snaps[best][1]-startSheetY)?i:best,0);
-        target=snaps[Math.max(0,Math.min(2,idx+(dy>0?1:-1)))][0];
-      }else{
-        target=[["full",m.top],["mid",m.mid],["peek",m.peek]].sort((a,b)=>Math.abs(a[1]-current)-Math.abs(b[1]-current))[0][0];
-      }
-      setSheetSnap(target);
-    };
-    handle.addEventListener("pointerdown",down);handle.addEventListener("pointermove",move);handle.addEventListener("pointerup",up);handle.addEventListener("pointercancel",up);
-    peek.addEventListener("click",()=>{moved=false;setSheetSnap(sheet.dataset.snap==="peek"?"mid":sheet.dataset.snap==="mid"?"full":"peek")});
-    addEventListener("resize",()=>setSheetSnap(sheet.dataset.snap||"peek",false));
-  }
+  function checkpointPhotos(pingId){return state.media.filter(m=>m.ping_id===pingId)}
 
-  async function saveCheckpoint(){
-    const id=$("#editPingId").value;if(!id)return;
-    const captured=$("#editCapturedAt").value;
-    const btn=$("#saveCheckpointBtn"),old=btn.textContent;btn.disabled=true;btn.textContent="Saving…";
-    try{
-      await manage({
-        action:"edit",
-        pingId:id,
-        note:$("#editNote").value,
-        isPublic:$("#editPublic").checked,
-        capturedAt:captured?new Date(captured).toISOString():undefined
-      });
-      hide("editModal");
-      await Promise.all([loadOwnerPings(),refreshData()]);
-      toast("Checkpoint updated");
-    }catch(e){toast(e.message)}finally{btn.disabled=false;btn.textContent=old}
-  }
-
-  async function deleteCheckpoint(id){
-    const p=state.ownerPings.find(x=>x.id===id);
-    if(!p)return;
-    const label=p.note?`“${p.note.slice(0,48)}${p.note.length>48?"…":""}”`:new Date(p.captured_at).toLocaleString();
-    if(!confirm(`Delete this checkpoint?\n\n${label}\n\nAttached photos will also be deleted.`))return;
-    try{
-      await manage({action:"delete",pingId:id});
-      if($("#editPingId").value===id)hide("editModal");
-      await Promise.all([loadOwnerPings(),refreshData()]);
-      toast("Checkpoint deleted");
-    }catch(e){toast(e.message)}
-  }
-
-
-  function renderCheckpointNavigation(){
-    const carousel=$("#checkpointCarousel"),list=$("#checkpointListView");
-    if(!carousel||!list)return;
-    const pings=state.pings;
-    const eligibleCount=trailPings().length,offCount=pings.length-eligibleCount;
-    $("#checkpointNavMeta").textContent=pings.length
-      ?`${pings.length} total · ${eligibleCount} on trail${offCount?` · ${offCount} excluded`:""}`
-      :"No checkpoints yet";
-    $("#checkpointGateNote").textContent=`Trail KPI gate: checkpoints within ${trailRadiusKm()} km of the ${state.usingPreview?"preview route":"uploaded route"} count toward trail statistics. All checkpoints remain in the story.`;
-
-    carousel.innerHTML=pings.map((p,i)=>{
-      const info=checkpointInfo(p),photos=state.media.filter(m=>m.ping_id===p.id),cover=photos[0],no=String(i+1).padStart(2,"0");
-      return `<article class="checkpoint-card ${info.onTrail?"":"offtrail"} ${p.id===state.selectedPingId?"active":""}" data-checkpoint-card="${p.id}">
-        <div class="checkpoint-card-copy">
-          <div class="checkpoint-card-top"><div class="checkpoint-number">${no}</div><span class="trail-badge ${info.onTrail?"":"off"}">${info.onTrail?"On trail":"Off trail"}</span></div>
-          <div class="checkpoint-card-date">${dayLabel(p.captured_at)} · ${new Date(p.captured_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</div>
-          <div class="checkpoint-card-note">${esc(p.note||"Checkpoint")}</div>
-          <div class="checkpoint-card-meta">${photos.length} photo${photos.length===1?"":"s"} · ${info.onTrail?`${fmt.format(info.km)} km along route`:`${fmt.format(info.offset)} km from trail`}</div>
-        </div>
-        <div class="checkpoint-cover ${cover?"":"empty"}">${cover?`<img src="${mediaUrl(cover.storage_path)}" alt="">`:no}</div>
-      </article>`
+  function renderMapCheckpointRail(){
+    const rail=$("#mapCheckpointRail");if(!rail)return;
+    rail.innerHTML=state.pings.map((p,i)=>{
+      const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(i+1).padStart(2,"0");
+      const thumbs=photos.length?photos.slice(0,3).map(m=>`<span class="rail-thumb"><img src="${mediaUrl(m.storage_path)}" alt=""></span>`).join(""):`<span class="rail-thumb empty">${no}</span>`;
+      return `<article class="map-rail-card ${info.onTrail?"":"offtrail"} ${p.id===state.selectedPingId?"active":""}" data-map-checkpoint="${p.id}"><div class="map-rail-no">${no}</div><div class="rail-thumbs count-${Math.min(3,photos.length)}">${thumbs}</div><div class="rail-copy"><div class="rail-status">${info.onTrail?"On trail":"Off trail · excluded"}</div><div class="rail-title">${esc(p.note||`Checkpoint ${no}`)}</div><div class="rail-meta">${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"}</div></div></article>`
     }).join("");
-
-    list.innerHTML=pings.map((p,i)=>{
-      const info=checkpointInfo(p),photos=state.media.filter(m=>m.ping_id===p.id),no=String(i+1).padStart(2,"0");
-      return `<div class="checkpoint-list-item ${p.id===state.selectedPingId?"active":""}" data-checkpoint-list="${p.id}">
-        <div class="checkpoint-list-no">${no}</div>
-        <div class="checkpoint-list-copy"><strong>${esc(p.note||"Checkpoint")}</strong><span>${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"} · ${info.onTrail?fmt.format(info.km)+" km":fmt.format(info.offset)+" km from trail"}</span></div>
-        <div class="checkpoint-list-status ${info.onTrail?"":"off"}">${info.onTrail?"Trail":"Excluded"}</div>
-      </div>`
-    }).join("");
-
-    $$("[data-checkpoint-card]").forEach(el=>el.onclick=e=>{
-      if(e.target.closest(".checkpoint-cover")&&state.media.some(m=>m.ping_id===el.dataset.checkpointCard)){
-        const photos=state.media.filter(m=>m.ping_id===el.dataset.checkpointCard);openGallery(photos,0);return
-      }
-      selectPing(el.dataset.checkpointCard,{syncNav:false});syncCheckpointNavigation(el.dataset.checkpointCard,{center:false})
-    });
-    $$("[data-checkpoint-list]").forEach(el=>el.onclick=()=>selectPing(el.dataset.checkpointList));
-
-    carousel.classList.toggle("hidden",state.checkpointView!=="cards");
-    list.classList.toggle("hidden",state.checkpointView!=="list");
-    $("#checkpointCardsBtn").classList.toggle("active",state.checkpointView==="cards");
-    $("#checkpointListBtn").classList.toggle("active",state.checkpointView==="list");
-    syncCheckpointNavigation(state.selectedPingId,{behavior:"auto",center:false});
-    bindCheckpointCarouselScroll();
+    $$('[data-map-checkpoint]').forEach(card=>card.onclick=()=>selectPing(card.dataset.mapCheckpoint,{openSummary:true}));
+    syncMapCheckpointRail(state.selectedPingId,{behavior:"auto",scroll:false});bindMapRailScroll();
   }
-
-  function selectedCheckpointIndex(){
-    return Math.max(0,state.pings.findIndex(p=>p.id===state.selectedPingId))
-  }
-  function navigateCheckpoint(delta){
-    if(!state.pings.length)return;
-    const next=Math.max(0,Math.min(state.pings.length-1,selectedCheckpointIndex()+delta));
-    selectPing(state.pings[next].id)
-  }
-  function syncCheckpointNavigation(id,{behavior="smooth",center=true}={}){
-    if(!id)return;
-    $$("[data-checkpoint-card]").forEach(el=>el.classList.toggle("active",el.dataset.checkpointCard===id));
-    $$("[data-checkpoint-list]").forEach(el=>el.classList.toggle("active",el.dataset.checkpointList===id));
-    const idx=Math.max(0,state.pings.findIndex(p=>p.id===id));
-    $("#checkpointPrev").disabled=!state.pings.length||idx<=0;
-    $("#checkpointNext").disabled=!state.pings.length||idx>=state.pings.length-1;
-    if(center&&state.checkpointView==="cards"&&innerWidth<=800){
-      const el=[...document.querySelectorAll("[data-checkpoint-card]")].find(x=>x.dataset.checkpointCard===id);
-      el?.scrollIntoView({behavior,block:"nearest",inline:"start"})
-    }
-  }
-  function bindCheckpointCarouselScroll(){
-    const carousel=$("#checkpointCarousel");if(!carousel||carousel.dataset.bound==="1")return;
-    carousel.dataset.bound="1";let timer;
-    carousel.addEventListener("scroll",()=>{
-      clearTimeout(timer);timer=setTimeout(()=>{
-        const cards=[...carousel.querySelectorAll("[data-checkpoint-card]")];if(!cards.length)return;
-        const center=carousel.scrollLeft+carousel.clientWidth/2;
-        const nearest=cards.reduce((best,el)=>Math.abs(el.offsetLeft+el.offsetWidth/2-center)<Math.abs(best.offsetLeft+best.offsetWidth/2-center)?el:best,cards[0]);
-        if(nearest?.dataset.checkpointCard&&nearest.dataset.checkpointCard!==state.selectedPingId){
-          selectPing(nearest.dataset.checkpointCard,{syncNav:false,snapSheet:false});syncCheckpointNavigation(nearest.dataset.checkpointCard,{center:false})
-        }
-      },100)
-    },{passive:true})
-  }
-  function setCheckpointView(view){
-    state.checkpointView=view==="list"?"list":"cards";
-    $("#checkpointCarousel").classList.toggle("hidden",state.checkpointView!=="cards");
-    $("#checkpointListView").classList.toggle("hidden",state.checkpointView!=="list");
-    $("#checkpointCardsBtn").classList.toggle("active",state.checkpointView==="cards");
-    $("#checkpointListBtn").classList.toggle("active",state.checkpointView==="list");
-    if(state.checkpointView==="cards")requestAnimationFrame(()=>syncCheckpointNavigation(state.selectedPingId,{behavior:"auto"}))
-  }
+  function syncMapCheckpointRail(id,{behavior="smooth",scroll=true}={}){if(!id)return;$$('[data-map-checkpoint]').forEach(el=>el.classList.toggle('active',el.dataset.mapCheckpoint===id));const idx=Math.max(0,state.pings.findIndex(p=>p.id===id));$("#mapCheckpointPrev").disabled=!state.pings.length||idx<=0;$("#mapCheckpointNext").disabled=!state.pings.length||idx>=state.pings.length-1;if(scroll){const el=document.querySelector(`[data-map-checkpoint="${CSS.escape(id)}"]`);el?.scrollIntoView({behavior,block:"nearest",inline:"center"})}}
+  function bindMapRailScroll(){const rail=$("#mapCheckpointRail");if(!rail||rail.dataset.bound==="1")return;rail.dataset.bound="1";let timer;rail.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(()=>{const cards=[...rail.querySelectorAll('[data-map-checkpoint]')];if(!cards.length)return;const center=rail.scrollLeft+rail.clientWidth/2;const nearest=cards.reduce((best,el)=>Math.abs(el.offsetLeft+el.offsetWidth/2-center)<Math.abs(best.offsetLeft+best.offsetWidth/2-center)?el:best,cards[0]);const id=nearest?.dataset.mapCheckpoint;if(id&&id!==state.selectedPingId)selectPing(id,{focusMap:false,openSummary:false,scrollRail:false})},120)},{passive:true})}
+  function navigateCheckpoint(delta){if(!state.pings.length)return;const current=Math.max(0,state.pings.findIndex(p=>p.id===state.selectedPingId));const next=Math.max(0,Math.min(state.pings.length-1,current+delta));selectPing(state.pings[next].id,{openSummary:true})}
+  function openSurface(name){const panel=$("#mapPanel");if(!panel)return;panel.classList.remove('hidden');panel.dataset.surface=name;$$('[data-surface]').forEach(el=>el.classList.toggle('active',el.dataset.surface===name));$$('[data-surface-tab]').forEach(el=>el.classList.toggle('active',el.dataset.surfaceTab===name))}
+  function closeSurface(){$("#mapPanel")?.classList.add('hidden')}
+  function setupPanelDrag(){const panel=$("#mapPanel"),handle=$("#mapPanelHandle");if(!panel||!handle)return;let active=false,startY=0,startH=0;const down=e=>{active=true;startY=e.clientY;startH=panel.getBoundingClientRect().height;panel.classList.add('dragging');handle.setPointerCapture?.(e.pointerId);e.preventDefault()};const move=e=>{if(!active)return;const min=220,max=Math.min(innerHeight*.72,680);panel.style.height=`${Math.max(min,Math.min(max,startH+(startY-e.clientY)))}px`;e.preventDefault()};const up=()=>{active=false;panel.classList.remove('dragging')};handle.addEventListener('pointerdown',down);handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',up);handle.addEventListener('pointercancel',up)}
+  function renderCheckpointList(){const list=$("#checkpointListView");if(!list)return;$("#checkpointNavMeta").textContent=`${state.pings.length} total · ${trailPings().length} on trail`;list.innerHTML=state.pings.map((p,i)=>{const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(i+1).padStart(2,"0");const thumbs=photos.length?photos.slice(0,2).map(m=>`<img src="${mediaUrl(m.storage_path)}" alt="">`).join(""):"";return `<div class="checkpoint-list-item ${p.id===state.selectedPingId?"active":""}" data-list-checkpoint="${p.id}"><div class="checkpoint-list-no">${no}</div><div class="list-thumbs ${photos.length?"":"empty"}">${thumbs||no}</div><div class="checkpoint-list-copy"><strong>${esc(p.note||`Checkpoint ${no}`)}</strong><span>${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"} · ${info.onTrail?fmt.format(info.km)+" km":"excluded"}</span></div><div class="checkpoint-list-status ${info.onTrail?"":"off"}">${info.onTrail?"Trail":"Off trail"}</div></div>`}).join("")||`<div style="padding:18px 0;font-size:11px;color:var(--muted)">No checkpoints yet.</div>`;$$('[data-list-checkpoint]').forEach(el=>el.onclick=()=>selectPing(el.dataset.listCheckpoint,{openSummary:true}))}
 
   function renderAll(){
-    const pr=progress(),lastOverall=state.pings.at(-1),lastTrail=pr.last,total=state.routeKm||0,remain=Math.max(0,total-pr.km);
-    $("#tripSubtitleRail").textContent=state.trip.subtitle||"A live walk along Portugal’s Fisherman’s Trail — locations, photographs, small notes and whatever the coast decides to throw at me.";
-    $("#desktopStatus").textContent=lastOverall?`last checkpoint ${age(lastOverall.captured_at)}`:"waiting for the first checkpoint";
-    $("#railProgress").textContent=`${fmt.format(pr.km)} km`;$("#railRemaining").textContent=total?`${fmt.format(remain)} km`:"—";$("#railElevation").textContent=lastTrail?.elevation_m!=null?`${Math.round(lastTrail.elevation_m)} m`:"—";
-    $("#progressFill").style.width=`${pr.pct}%`;$("#progressLeft").textContent=`${Math.round(pr.pct)}%`;$("#progressRight").textContent=total?`${fmt.format(total)} km route`:"route";
-    $("#previewLabel").classList.toggle("hidden",!state.usingPreview);
-    $("#sheetTitle").textContent=lastOverall?.note||state.trip.subtitle||"The Atlantic is waiting.";
-    $("#sheetMeta").textContent=lastOverall?`Checkpoint ${String(state.pings.length).padStart(2,"0")} · ${dayLabel(lastOverall.captured_at)} · ${age(lastOverall.captured_at)}`:"first checkpoint starts the story";
-    $("#sheetProgress").textContent=`${Math.round(pr.pct)}%`;
-    $("#ownerLast").textContent=lastOverall?age(lastOverall.captured_at):"—";$("#tripTitleInput").value=state.trip.title||"";$("#tripSubtitleInput").value=state.trip.subtitle||"";
-    if(!state.pings.some(p=>p.id===state.selectedPingId))state.selectedPingId=lastOverall?.id||null;
-    renderVisitor();renderKpis();renderCheckpointNavigation();renderSelectedPing();renderStories();renderDays();renderElevation();
-  }
-
-  function renderStories(){
-    const cards=state.pings.map((p,i)=>{
-      const photos=state.media.filter(m=>m.ping_id===p.id),cover=photos[0],info=checkpointInfo(p),no=String(i+1).padStart(2,"0");
-      return{id:p.id,photos,cover,info,no,p}
-    });
-    $("#storyStrip").innerHTML=cards.map(c=>`<article class="story-chip" data-ping="${c.id}">
-      <div class="date">${c.no} · ${dayLabel(c.p.captured_at)} · ${c.info.onTrail?"ON TRAIL":"OFF TRAIL"}</div>
-      <div class="note">${esc(c.p.note||`${c.photos.length} photo${c.photos.length===1?"":"s"} from checkpoint ${c.no}`)}</div>
-      <div class="meta">${c.info.onTrail?`${fmt.format(c.info.km)} km along route`:`${fmt.format(c.info.offset)} km from trail · excluded`}</div>
-    </article>`).join("");
-    $("#diary").innerHTML=cards.map(c=>`<article class="diary-item" data-ping="${c.id}">
-      <div class="diary-thumb" data-diary-photo="${c.id}">${c.cover?`<img src="${mediaUrl(c.cover.storage_path)}" alt="">`:`<div style="display:grid;place-items:center;height:100%;font-family:var(--serif);font-size:22px;color:#aaa79e">${c.no}</div>`}</div>
-      <div><div class="diary-time">${c.no} · ${dayLabel(c.p.captured_at)} · ${c.info.onTrail?"On trail":"Off trail"}</div><div class="diary-note">${esc(c.p.note||"Checkpoint")}</div><div class="diary-meta">${c.photos.length} photo${c.photos.length===1?"":"s"} · ${c.info.onTrail?fmt.format(c.info.km)+" km":fmt.format(c.info.offset)+" km from trail · excluded"}</div></div>
-    </article>`).join("")||`<div class="diary-item"><div class="diary-thumb"></div><div><div class="diary-time">Soon</div><div class="diary-note">The first checkpoint starts the diary.</div></div></div>`;
-    $$("[data-ping]").forEach(el=>el.onclick=()=>selectPing(el.dataset.ping));
-    $$("[data-diary-photo]").forEach(el=>el.onclick=e=>{e.stopPropagation();const photos=state.media.filter(m=>m.ping_id===el.dataset.diaryPhoto);if(photos.length)openGallery(photos,0)});
+    const lastOverall=state.pings.at(-1);$("#previewLabel").classList.toggle("hidden",!state.usingPreview);$("#ownerLast").textContent=lastOverall?age(lastOverall.captured_at):"—";$("#tripTitleInput").value=state.trip.title||"";$("#tripSubtitleInput").value=state.trip.subtitle||"";if(!state.pings.some(p=>p.id===state.selectedPingId))state.selectedPingId=lastOverall?.id||null;renderVisitor();renderKpis();renderMapCheckpointRail();renderCheckpointList();renderSelectedPing();renderDays();renderElevation();$("#checkpointGateNote").textContent=`Only checkpoints within ${trailRadiusKm()} km of the ${state.usingPreview?"preview":"uploaded"} route count toward trail KPIs. Off-trail checkpoints stay in the story.`
   }
 
   function renderDays(){
@@ -1452,14 +1069,7 @@
     }).join("")||`<div class="day"><b>Trail stats</b><strong>—</strong><small>No on-trail checkpoints yet</small></div>`
   }
 
-  function selectPing(id,{syncNav=true,focusMap=true,snapSheet=true}={}){
-    const p=state.pings.find(x=>x.id===id);if(!p)return;
-    const changed=state.selectedPingId!==id;state.selectedPingId=id;if(changed)state.selectedPhotoIndex=0;
-    renderSelectedPing();
-    if(syncNav)syncCheckpointNavigation(id);
-    if(focusMap&&state.map)state.map.easeTo({center:[p.lon,p.lat],zoom:14,pitch:state.view3d?54:0,duration:650});
-    if(innerWidth<800&&snapSheet)setSheetSnap("mid")
-  }
+  function selectPing(id,{focusMap=true,openSummary=true,scrollRail=true}={}){const p=state.pings.find(x=>x.id===id);if(!p)return;const changed=state.selectedPingId!==id;state.selectedPingId=id;if(changed)state.selectedPhotoIndex=0;renderSelectedPing();renderCheckpointList();syncMapCheckpointRail(id,{scroll:scrollRail});if(focusMap&&state.map)state.map.easeTo({center:[p.lon,p.lat],zoom:13.8,pitch:state.view3d?52:0,duration:550});if(openSummary)openSurface("summary")}
 
   async function refreshData(){
     if(!state.trip)return;
@@ -1639,36 +1249,7 @@
   }
 
   function bind(){
-    $("#ownerBtn").onclick=()=>state.owner?(show("ownerModal"),loadOwnerPings()):show("loginModal");
-    $("#mobileOwner").onclick=()=>state.owner?(show("ownerModal"),loadOwnerPings()):show("loginModal");
-    $("#shareBtn").onclick=shareTrip;$("#mobileShare").onclick=shareTrip;
-    $("#pingFab").onclick=()=>state.owner&&startCapture();
-    $("#checkpointPrev").onclick=()=>navigateCheckpoint(-1);$("#checkpointNext").onclick=()=>navigateCheckpoint(1);
-    $("#checkpointCardsBtn").onclick=()=>setCheckpointView("cards");$("#checkpointListBtn").onclick=()=>setCheckpointView("list");
-    $("#loginSubmit").onclick=login;$("#logoutBtn").onclick=logout;$("#saveTripBtn").onclick=saveTrip;$("#avatarInput").onchange=changeAvatar;$("#routeInput").onchange=uploadRoute;
-    $("#saveCheckpointBtn").onclick=saveCheckpoint;$("#deleteCheckpointBtn").onclick=()=>deleteCheckpoint($("#editPingId").value);
-    $("#editAddPhotosBtn").onclick=()=>$("#editPhotoInput").click();
-    $("#editPhotoInput").onchange=async e=>{const id=$("#editPingId").value;await addPhotosToExisting(id,[...e.target.files]);e.target.value=""};
-    $$("[data-close]").forEach(b=>b.onclick=()=>hide(b.dataset.close));
-    $$(".modal-wrap").forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});
-    $$("[data-view]").forEach(btn=>btn.onclick=()=>{
-      if(!state.map)return;
-      state.view3d=btn.dataset.view==="3d";$$("[data-view]").forEach(b=>b.classList.toggle("active",b===btn));
-      state.map.easeTo({pitch:state.view3d?52:0,bearing:state.view3d?-10:0,duration:600});
-      try{state.map.setTerrain(state.view3d?{source:"terrain",exaggeration:1.10}:null)}catch{}
-    });
-    $("#followBtn").onclick=()=>{if(!state.map)return;state.follow=!state.follow;if(state.follow&&state.pings.length){const p=state.pings.at(-1);state.map.easeTo({center:[p.lon,p.lat],zoom:13.4,pitch:state.view3d?52:0})}};
-    $("#addPhotosBtn").onclick=()=>$("#photoInput").click();
-    $("#photoInput").onchange=async e=>{await uploadPhotos([...e.target.files]);e.target.value=""};
-    $("#continueNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};
-    $("#backToPhotosBtn").onclick=()=>{goStep("stepPhotos");setCaptureStage("photos")};
-    $("#continueReviewBtn").onclick=continueToReview;
-    $("#backToNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};
-    $("#finishCheckpointBtn").onclick=finishCapture;$("#discardCheckpointBtn").onclick=discardCurrentCheckpoint;
-    $("#galleryClose").onclick=closeGallery;$("#galleryPrev").onclick=()=>galleryMove(-1);$("#galleryNext").onclick=()=>galleryMove(1);
-    $("#galleryModal").onclick=e=>{if(e.target===$("#galleryModal")||e.target.classList.contains("lightbox-main"))closeGallery()};
-    addEventListener("keydown",e=>{if(!$("#galleryModal").classList.contains("show"))return;if(e.key==="Escape")closeGallery();if(e.key==="ArrowLeft")galleryMove(-1);if(e.key==="ArrowRight")galleryMove(1)});
-    setupSheetDrag()
+    $("#ownerBtn").onclick=()=>state.owner?(show("ownerModal"),loadOwnerPings()):show("loginModal");$("#shareBtn").onclick=shareTrip;$("#statsOpenBtn").onclick=()=>openSurface("stats");$("#listOpenBtn").onclick=()=>openSurface("list");$("#mapPanelClose").onclick=closeSurface;$$('[data-surface-tab]').forEach(btn=>btn.onclick=()=>openSurface(btn.dataset.surfaceTab));$("#mapCheckpointPrev").onclick=()=>navigateCheckpoint(-1);$("#mapCheckpointNext").onclick=()=>navigateCheckpoint(1);$("#pingFab").onclick=()=>state.owner&&startCapture();$("#loginSubmit").onclick=login;$("#logoutBtn").onclick=logout;$("#saveTripBtn").onclick=saveTrip;$("#avatarInput").onchange=changeAvatar;$("#routeInput").onchange=uploadRoute;$("#saveCheckpointBtn").onclick=saveCheckpoint;$("#deleteCheckpointBtn").onclick=()=>deleteCheckpoint($("#editPingId").value);$("#editAddPhotosBtn").onclick=()=>$("#editPhotoInput").click();$("#editPhotoInput").onchange=async e=>{const id=$("#editPingId").value;await addPhotosToExisting(id,[...e.target.files]);e.target.value=""};$$('[data-close]').forEach(b=>b.onclick=()=>hide(b.dataset.close));$$('.modal-wrap').forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});$$('[data-view]').forEach(btn=>btn.onclick=()=>{if(!state.map)return;state.view3d=btn.dataset.view==="3d";$$('[data-view]').forEach(b=>b.classList.toggle('active',b===btn));state.map.easeTo({pitch:state.view3d?52:0,bearing:state.view3d?-10:0,duration:600});try{state.map.setTerrain(state.view3d?{source:"terrain",exaggeration:1.10}:null)}catch{}});$("#followBtn").onclick=()=>{if(!state.map)return;state.follow=!state.follow;if(state.follow&&state.pings.length){const p=state.pings.at(-1);state.map.easeTo({center:[p.lon,p.lat],zoom:13.4,pitch:state.view3d?52:0})}};$("#addPhotosBtn").onclick=()=>$("#photoInput").click();$("#photoInput").onchange=async e=>{await uploadPhotos([...e.target.files]);e.target.value=""};$("#continueNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#backToPhotosBtn").onclick=()=>{goStep("stepPhotos");setCaptureStage("photos")};$("#continueReviewBtn").onclick=continueToReview;$("#backToNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#finishCheckpointBtn").onclick=finishCapture;$("#discardCheckpointBtn").onclick=discardCurrentCheckpoint;$("#galleryClose").onclick=closeGallery;$("#galleryPrev").onclick=()=>galleryMove(-1);$("#galleryNext").onclick=()=>galleryMove(1);$("#galleryModal").onclick=e=>{if(e.target===$("#galleryModal")||e.target.classList.contains("lightbox-main"))closeGallery()};addEventListener("keydown",e=>{if(!$("#galleryModal").classList.contains("show"))return;if(e.key==="Escape")closeGallery();if(e.key==="ArrowLeft")galleryMove(-1);if(e.key==="ArrowRight")galleryMove(1)});setupPanelDrag()
   }
 
   function realtime(){
