@@ -271,6 +271,97 @@
     .ping-fab{right:18px;bottom:112px}
     @media(max-width:700px){.map-header{left:10px;right:10px}.map-brand{padding:9px 10px}.map-brand-sub{font-size:18px}.visitor-map{display:none}.map-header-actions{gap:4px}.map-action{padding:0 9px;min-width:38px;height:38px}.map-action.icon{width:38px;height:38px}.map-top{top:calc(var(--safe-top) + 50px);right:10px}.map-top .plain-btn:not(.icon){display:none}.map-checkpoint-nav{left:8px;right:8px;bottom:8px;grid-template-columns:0 minmax(0,1fr) 0;gap:0}.rail-arrow{display:none}.map-rail-card{flex-basis:min(82vw,275px);height:88px;grid-template-columns:34px 78px 1fr}.rail-thumbs{width:78px;height:70px}.map-panel{bottom:104px;width:calc(100% - 16px);height:min(48dvh,470px);min-height:220px}.preview-label{left:10px;bottom:108px}.ping-fab{right:14px;bottom:108px;width:58px;height:58px}.ping-metrics{grid-template-columns:repeat(3,1fr)}.map-panel-body{padding:12px}.checkpoint-list-item{grid-template-columns:32px 58px 1fr}.checkpoint-list-status{display:none}.list-thumbs{width:58px;height:44px}}
 
+
+    /* CHECKPOINT PILL SHEET — map is the primary surface */
+    .map-checkpoint-nav,.map-checkpoint-rail{display:none!important}
+    .checkpoint-dock{
+      position:absolute;z-index:14;left:50%;bottom:12px;transform:translateX(-50%);
+      width:min(760px,calc(100% - 20px));display:grid;grid-template-columns:50px minmax(0,1fr) 50px;
+      align-items:end;gap:8px;pointer-events:auto
+    }
+    .dock-arrow{
+      width:50px;height:78px;border:1px solid rgba(22,23,19,.12);border-radius:25px;
+      background:rgba(246,243,236,.96);box-shadow:0 12px 32px rgba(37,33,25,.10);backdrop-filter:blur(14px);
+      font-family:var(--serif);font-size:27px;cursor:pointer
+    }
+    .dock-arrow:disabled{opacity:.30;cursor:default}
+    .checkpoint-sheet{
+      position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;width:100%!important;
+      height:78px!important;min-height:78px!important;border:1px solid rgba(22,23,19,.12)!important;
+      border-radius:28px!important;background:rgba(246,243,236,.97)!important;
+      box-shadow:0 16px 44px rgba(37,33,25,.12)!important;backdrop-filter:blur(16px);overflow:hidden;
+      transition:height .34s cubic-bezier(.2,.8,.2,1),border-radius .24s ease
+    }
+    .checkpoint-sheet.expanded{height:min(62dvh,620px)!important;border-radius:28px 28px 22px 22px!important}
+    .checkpoint-pill{
+      width:100%;height:76px;border:0;background:transparent;padding:8px 11px;cursor:pointer;text-align:left;
+      display:grid;grid-template-columns:36px 68px minmax(0,1fr) 24px;align-items:center;gap:9px
+    }
+    .pill-number{font-family:var(--serif);font-size:28px;line-height:1;text-align:center}
+    .pill-thumbs{width:68px;height:58px;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:2px;overflow:hidden;border-radius:15px;background:#ddd9d1}
+    .pill-thumb{overflow:hidden;background:#ddd9d1}.pill-thumb:first-child{grid-row:1/3}.pill-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .pill-thumbs.count-1 .pill-thumb:first-child{grid-column:1/3;grid-row:1/3}.pill-thumbs.count-2{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.pill-thumbs.count-2 .pill-thumb:first-child{grid-row:auto}.pill-thumb.empty{grid-column:1/3;grid-row:1/3;display:grid;place-items:center;font-family:var(--serif);font-size:22px;color:#aaa79e}
+    .pill-copy{min-width:0}.pill-eyebrow{font-size:7px;text-transform:uppercase;letter-spacing:.12em;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .pill-eyebrow.off{color:#7d7f78}.pill-title{font-family:var(--serif);font-size:18px;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+    .pill-meta{font-size:8px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .pill-expand{font-family:var(--serif);font-size:20px;color:var(--muted);text-align:center;transition:transform .25s ease}.checkpoint-sheet.expanded .pill-expand{transform:rotate(180deg)}
+    .checkpoint-sheet-expanded{height:calc(100% - 78px);opacity:0;pointer-events:none;transition:opacity .18s ease;display:flex;flex-direction:column}
+    .checkpoint-sheet.expanded .checkpoint-sheet-expanded{opacity:1;pointer-events:auto}
+    .checkpoint-sheet .map-panel-handle{height:14px;flex:0 0 14px}.checkpoint-sheet .map-panel-top{height:40px;flex:0 0 40px}
+    .checkpoint-sheet .map-panel-body{height:auto!important;flex:1;min-height:0;overflow:auto;padding:13px 15px 18px}
+    .checkpoint-detail{margin:0!important;padding:0!important;border:0!important}.checkpoint-detail h3{font-size:26px!important}
+    .selected-photo-slide{aspect-ratio:16/9!important}.selected-photo-track{border-radius:15px;overflow-x:auto}
+    .ping-fab{bottom:102px!important}.preview-label{bottom:102px!important}
+    .map-panel{position:relative!important}
+    @media(max-width:700px){
+      .checkpoint-dock{bottom:max(8px,env(safe-area-inset-bottom));width:calc(100% - 14px);grid-template-columns:44px minmax(0,1fr) 44px;gap:6px}
+      .dock-arrow{width:44px;height:76px;border-radius:22px}.checkpoint-sheet{height:76px!important;min-height:76px!important;border-radius:25px!important}
+      .checkpoint-sheet.expanded{height:min(64dvh,560px)!important}.checkpoint-pill{height:74px;grid-template-columns:32px 62px minmax(0,1fr) 18px;padding:7px 9px;gap:7px}
+      .pill-number{font-size:24px}.pill-thumbs{width:62px;height:58px;border-radius:13px}.pill-title{font-size:16px}.pill-meta{font-size:7.5px}
+      .checkpoint-sheet-expanded{height:calc(100% - 76px)}.ping-fab{bottom:98px!important}.preview-label{bottom:98px!important}
+    }
+
+
+    /* UNIFIED CHECKPOINT PREVIEWS */
+    .checkpoint-preview{
+      position:relative;overflow:hidden;background:#ddd9d1;
+      display:grid;gap:2px
+    }
+    .checkpoint-preview.preview-0{
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#e9e5dc,#d8d4ca)
+    }
+    .checkpoint-preview.preview-0 .preview-empty{
+      display:grid;place-items:center;width:100%;height:100%;
+      font-family:var(--serif);font-size:24px;color:#9b988f
+    }
+    .checkpoint-preview.preview-1{
+      grid-template-columns:1fr;grid-template-rows:1fr
+    }
+    .checkpoint-preview.preview-2{
+      grid-template-columns:1fr 1fr;grid-template-rows:1fr
+    }
+    .checkpoint-preview.preview-3{
+      grid-template-columns:1.35fr .85fr;grid-template-rows:1fr 1fr
+    }
+    .checkpoint-preview.preview-3 .preview-image:first-child{grid-row:1/3}
+    .preview-image{min-width:0;min-height:0;overflow:hidden;background:#d8d4cb}
+    .preview-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .preview-more{
+      position:absolute;right:5px;bottom:5px;background:rgba(20,20,18,.75);color:#fff;
+      padding:3px 5px;font-size:7px;letter-spacing:.07em
+    }
+    .preview-image img[data-preview-img]{opacity:0;transition:opacity .18s ease}
+    .preview-image img[data-preview-img].loaded{opacity:1}
+
+    .pill-thumbs.checkpoint-preview{display:grid}
+    .list-thumbs.checkpoint-preview{display:grid}
+    .pill-thumbs.preview-1 .preview-image,
+    .list-thumbs.preview-1 .preview-image{grid-column:1/-1;grid-row:1/-1}
+    .list-thumbs.preview-2{grid-template-columns:1fr 1fr}
+    .list-thumbs.preview-3{grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr}
+    .list-thumbs.preview-3 .preview-image:first-child{grid-row:1/3}
+
     /* MODALS */
     .modal-wrap{
       display:none;position:absolute;z-index:50;inset:0;background:rgba(24,24,20,.16);
@@ -386,10 +477,57 @@
 
       <div class="preview-label hidden" id="previewLabel">preview route · upload GPX in owner mode</div>
 
-      <div class="map-checkpoint-nav" id="mapCheckpointNav">
-        <button class="rail-arrow" id="mapCheckpointPrev" aria-label="Previous checkpoint">‹</button>
-        <div class="map-checkpoint-rail" id="mapCheckpointRail"></div>
-        <button class="rail-arrow" id="mapCheckpointNext" aria-label="Next checkpoint">›</button>
+      <div class="checkpoint-dock hidden" id="checkpointDock">
+        <button class="dock-arrow" id="mapCheckpointPrev" aria-label="Previous checkpoint">‹</button>
+
+        <section class="checkpoint-sheet" id="mapPanel" data-surface="summary">
+          <button class="checkpoint-pill" id="checkpointPill" type="button" aria-label="Open checkpoint details">
+            <div class="pill-number" id="pillNumber">—</div>
+            <div class="pill-thumbs" id="pillThumbs"><span class="pill-thumb empty">—</span></div>
+            <div class="pill-copy">
+              <div class="pill-eyebrow" id="pillEyebrow">Waiting for checkpoint</div>
+              <div class="pill-title" id="pillTitle">No checkpoint yet</div>
+              <div class="pill-meta" id="pillMeta">Tap after your first ping</div>
+            </div>
+            <div class="pill-expand" id="pillExpand">⌃</div>
+          </button>
+
+          <div class="checkpoint-sheet-expanded" id="checkpointSheetExpanded">
+            <div class="map-panel-handle" id="mapPanelHandle"><i></i></div>
+            <div class="map-panel-top">
+              <div class="surface-tabs">
+                <button class="surface-tab active" data-surface-tab="summary">Summary</button>
+                <button class="surface-tab" data-surface-tab="stats">Stats</button>
+                <button class="surface-tab" data-surface-tab="list">List</button>
+              </div>
+              <button class="panel-close" id="mapPanelClose" aria-label="Collapse panel">×</button>
+            </div>
+            <div class="map-panel-body">
+              <div class="surface active" data-surface="summary"><div id="selectedPingDetail"></div></div>
+              <div class="surface" data-surface="stats">
+                <div class="kpi-grid compact">
+                  <div class="kpi"><strong id="kDistance">0.0</strong><span>km completed</span><small>along route</small></div>
+                  <div class="kpi"><strong id="kRemain">—</strong><span>km remaining</span><small>to finish</small></div>
+                  <div class="kpi"><strong id="kToday">0.0</strong><span>km today</span><small>trail pings only</small></div>
+                  <div class="kpi"><strong id="kGain">0</strong><span>m gain</span><small>route estimate</small></div>
+                  <div class="kpi"><strong id="kElapsed">—</strong><span>elapsed</span><small>trail time span</small></div>
+                  <div class="kpi"><strong id="kDays">0</strong><span>active days</span><small>on trail</small></div>
+                  <div class="kpi"><strong id="kPings">0</strong><span>trail checkpoints</span><small id="kPingsSub">off-trail excluded</small></div>
+                  <div class="kpi"><strong id="kPhotos">0</strong><span>trail photos</span><small>on-trail only</small></div>
+                </div>
+                <div class="panel-section"><div class="panel-section-title">Elevation</div><svg id="elevationSvg" viewBox="0 0 600 120" preserveAspectRatio="none"></svg></div>
+                <div class="panel-section"><div class="panel-section-title">Days</div><div class="day-list" id="days"></div></div>
+                <div class="gate-note" id="checkpointGateNote"></div>
+              </div>
+              <div class="surface" data-surface="list">
+                <div class="list-heading"><div><strong>All checkpoints</strong><span id="checkpointNavMeta">chronological</span></div></div>
+                <div class="checkpoint-list-view" id="checkpointListView"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <button class="dock-arrow" id="mapCheckpointNext" aria-label="Next checkpoint">›</button>
       </div>
 
       <button class="ping-fab" id="pingFab" aria-label="Ping location">
@@ -397,39 +535,6 @@
       </button>
     </div>
 
-    <section class="map-panel hidden" id="mapPanel" data-surface="summary">
-      <div class="map-panel-handle" id="mapPanelHandle"><i></i></div>
-      <div class="map-panel-top">
-        <div class="surface-tabs">
-          <button class="surface-tab active" data-surface-tab="summary">Summary</button>
-          <button class="surface-tab" data-surface-tab="stats">Stats</button>
-          <button class="surface-tab" data-surface-tab="list">List</button>
-        </div>
-        <button class="panel-close" id="mapPanelClose" aria-label="Close panel">×</button>
-      </div>
-      <div class="map-panel-body">
-        <div class="surface active" data-surface="summary"><div id="selectedPingDetail"></div></div>
-        <div class="surface" data-surface="stats">
-          <div class="kpi-grid compact">
-            <div class="kpi"><strong id="kDistance">0.0</strong><span>km completed</span><small>along route</small></div>
-            <div class="kpi"><strong id="kRemain">—</strong><span>km remaining</span><small>to finish</small></div>
-            <div class="kpi"><strong id="kToday">0.0</strong><span>km today</span><small>trail pings only</small></div>
-            <div class="kpi"><strong id="kGain">0</strong><span>m gain</span><small>route estimate</small></div>
-            <div class="kpi"><strong id="kElapsed">—</strong><span>elapsed</span><small>trail time span</small></div>
-            <div class="kpi"><strong id="kDays">0</strong><span>active days</span><small>on trail</small></div>
-            <div class="kpi"><strong id="kPings">0</strong><span>trail checkpoints</span><small id="kPingsSub">off-trail excluded</small></div>
-            <div class="kpi"><strong id="kPhotos">0</strong><span>trail photos</span><small>on-trail only</small></div>
-          </div>
-          <div class="panel-section"><div class="panel-section-title">Elevation</div><svg id="elevationSvg" viewBox="0 0 600 120" preserveAspectRatio="none"></svg></div>
-          <div class="panel-section"><div class="panel-section-title">Days</div><div class="day-list" id="days"></div></div>
-          <div class="gate-note" id="checkpointGateNote"></div>
-        </div>
-        <div class="surface" data-surface="list">
-          <div class="list-heading"><div><strong>All checkpoints</strong><span id="checkpointNavMeta">chronological</span></div></div>
-          <div class="checkpoint-list-view" id="checkpointListView"></div>
-        </div>
-      </div>
-    </section>
   </section>
 
   <div class="modal-wrap" id="loginModal">
@@ -599,18 +704,33 @@
 
   let maplibregl = null;
 
+  function dismissLoader(){
+    const loader=$("#loading");
+    if(loader)loader.classList.add("hide");
+  }
+
+  async function importWithTimeout(url, ms=4500){
+    let timer;
+    try{
+      return await Promise.race([
+        import(url),
+        new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`Timed out loading ${url}`)),ms)})
+      ]);
+    }finally{clearTimeout(timer)}
+  }
+
   async function loadMapLibre() {
     if (maplibregl?.Map) return maplibregl;
 
     const candidates = [
-      "https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs",
-      "https://cdn.jsdelivr.net/npm/maplibre-gl@6.8.0/dist/maplibre-gl.mjs"
+      "https://cdn.jsdelivr.net/npm/maplibre-gl@6.8.0/dist/maplibre-gl.mjs",
+      "https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs"
     ];
 
     let lastError = null;
     for (const url of candidates) {
       try {
-        const mod = await import(url);
+        const mod = await importWithTimeout(url);
         if (mod?.Map) {
           maplibregl = mod;
           return mod;
@@ -635,7 +755,7 @@
   const ADMIN_BASE=SUPABASE_URL+"/functions/v1/fisher-admin";
   const MANAGE_BASE=SUPABASE_URL+"/functions/v1/fisher-manage";
   const MEDIA_BUCKET="fisher-media";
-  const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true}});
+  const sb=window.supabase?.createClient?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true}}):null;
   const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
   const fmt=new Intl.NumberFormat(undefined,{maximumFractionDigits:1});
   const state={trip:null,profile:null,pings:[],ownerPings:[],ownerMedia:[],media:[],visits:0,route:null,usingPreview:false,routeKm:0,session:null,owner:false,currentPing:null,captureMedia:[],selectedPingId:null,selectedPhotoIndex:0,checkpointView:"cards",gallery:[],galleryIndex:0,map:null,walker:null,view3d:true,follow:true,elevationProfile:[]};
@@ -684,16 +804,29 @@
     }catch(e){console.warn(e)}
   }
 
+  async function restGet(table,params={}){
+    const q=new URLSearchParams(params);
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}?${q}`,{headers:{apikey:SUPABASE_KEY,Accept:"application/json"}});
+    if(!r.ok)throw new Error(`Could not load ${table} (${r.status})`);
+    return r.json()
+  }
+  async function restPatch(table,filters,body){
+    const q=new URLSearchParams(filters);
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}?${q}`,{method:"PATCH",headers:{apikey:SUPABASE_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(body)});
+    if(!r.ok)throw new Error(`Could not update ${table} (${r.status})`)
+  }
+
   async function loadData(){
-    const {data:trip,error}=await sb.from("fisher_trip").select("*").eq("slug",TRIP_SLUG).single();if(error)throw error;
+    const trips=await restGet("fisher_trip",{select:"*",slug:`eq.${TRIP_SLUG}`,limit:"1"});
+    const trip=trips?.[0];if(!trip)throw new Error("Trip configuration is unavailable");
     state.trip=trip;
-    const [pr,p,m,v]=await Promise.all([
-      sb.from("fisher_profile").select("*").eq("trip_id",trip.id).maybeSingle(),
-      sb.from("fisher_pings").select("*").eq("trip_id",trip.id).eq("is_public",true).order("captured_at",{ascending:true}),
-      sb.from("fisher_media").select("*").eq("trip_id",trip.id).eq("is_public",true).order("created_at",{ascending:true}),
-      sb.from("fisher_visits").select("*").eq("trip_id",trip.id).maybeSingle()
+    const [profiles,pings,media,visits]=await Promise.all([
+      restGet("fisher_profile",{select:"*",trip_id:`eq.${trip.id}`,limit:"1"}),
+      restGet("fisher_pings",{select:"*",trip_id:`eq.${trip.id}`,is_public:"eq.true",order:"captured_at.asc"}),
+      restGet("fisher_media",{select:"*",trip_id:`eq.${trip.id}`,is_public:"eq.true",order:"created_at.asc"}),
+      restGet("fisher_visits",{select:"*",trip_id:`eq.${trip.id}`,limit:"1"})
     ]);
-    state.profile=pr.data||{};state.pings=p.data||[];state.media=m.data||[];state.visits=v.data?.total||0;
+    state.profile=profiles?.[0]||{};state.pings=pings||[];state.media=media||[];state.visits=visits?.[0]?.total||0;
     state.route=trip.route_geojson||PREVIEW_ROUTE;state.usingPreview=!trip.route_geojson;
     state.routeKm=trip.planned_distance_km?Number(trip.planned_distance_km):turf.length(state.route,{units:"kilometers"});
     await bumpVisitor();await restoreOwner();
@@ -704,8 +837,8 @@
     sessionStorage.setItem(k,"1");
     try{
       const next=Number(state.visits||0)+1;
-      const {error}=await sb.from("fisher_visits").update({total:next,updated_at:new Date().toISOString()}).eq("trip_id",state.trip.id);
-      if(!error)state.visits=next;
+      await restPatch("fisher_visits",{trip_id:`eq.${state.trip.id}`},{total:next,updated_at:new Date().toISOString()});
+      state.visits=next;
     }catch{}
     renderVisitor();
   }
@@ -760,48 +893,74 @@
       zoom:Number(state.trip.home_zoom||8.7),pitch:52,bearing:-10,maxPitch:75,attributionControl:false
     });
     state.map.addControl(new maplibregl.AttributionControl({compact:true}),"bottom-right");
+    state.map.on("error",e=>console.warn("MapLibre:",e?.error||e));
     state.map.on("load",async()=>{
-      try{state.map.addSource("terrain",{type:"raster-dem",url:"https://tiles.mapterhorn.com/tilejson.json",tileSize:256});state.map.setTerrain({source:"terrain",exaggeration:1.10})}catch{}
-      buildLayers();fitInitial();await buildElevation();renderAll();setTimeout(()=>$("#loading").classList.add("hide"),120)
+      try{
+        try{
+          state.map.addSource("terrain",{type:"raster-dem",url:"https://tiles.mapterhorn.com/tilejson.json",tileSize:256});
+          state.map.setTerrain({source:"terrain",exaggeration:1.10});
+        }catch(e){console.warn("Terrain unavailable:",e)}
+        buildLayers();
+        fitInitial();
+        await buildElevation();
+        renderAll();
+      }catch(e){
+        console.error("Map enhancement failed:",e);
+        toast("Map loaded with reduced detail");
+      }finally{
+        dismissLoader();
+      }
     });
   }
 
   function buildLayers(){
-    state.map.addSource("planned",{type:"geojson",lineMetrics:true,data:state.route});
-    state.map.addLayer({id:"planned",type:"line",source:"planned",layout:{"line-cap":"round","line-join":"round"},paint:{
-      "line-color":state.usingPreview?"#6e756d":"#373b35","line-opacity":state.usingPreview?.52:.72,
-      "line-width":["interpolate",["linear"],["zoom"],7,2,14,5],
-      "line-dasharray":state.usingPreview?[2.3,1.8]:[1,0]
-    }});
-    state.map.addSource("actual",{type:"geojson",lineMetrics:true,data:actualGeo()});
-    state.map.addLayer({id:"actual-shadow",type:"line",source:"actual",layout:{"line-cap":"round","line-join":"round"},paint:{"line-color":"rgba(20,20,16,.28)","line-width":["interpolate",["linear"],["zoom"],7,7,14,12]}});
-    state.map.addLayer({id:"actual",type:"line",source:"actual",layout:{"line-cap":"round","line-join":"round"},paint:{"line-color":"#e85f36","line-width":["interpolate",["linear"],["zoom"],7,3.5,14,6]}});
-    state.map.addSource("pings",{type:"geojson",data:pingGeo()});
-    state.map.addLayer({id:"pings",type:"circle",source:"pings",paint:{
+    const safe=(label,fn)=>{try{fn()}catch(e){console.warn(`${label} skipped:`,e)}};
+
+    safe("planned route source",()=>state.map.addSource("planned",{type:"geojson",lineMetrics:true,data:state.route}));
+    safe("planned route layer",()=>{
+      const paint={
+        "line-color":state.usingPreview?"#6e756d":"#373b35",
+        "line-opacity":state.usingPreview?.52:.72,
+        "line-width":["interpolate",["linear"],["zoom"],7,2,14,5]
+      };
+      if(state.usingPreview)paint["line-dasharray"]=[2.3,1.8];
+      state.map.addLayer({id:"planned",type:"line",source:"planned",layout:{"line-cap":"round","line-join":"round"},paint});
+    });
+
+    safe("actual route source",()=>state.map.addSource("actual",{type:"geojson",lineMetrics:true,data:actualGeo()}));
+    safe("actual route shadow",()=>state.map.addLayer({id:"actual-shadow",type:"line",source:"actual",layout:{"line-cap":"round","line-join":"round"},paint:{"line-color":"rgba(20,20,16,.28)","line-width":["interpolate",["linear"],["zoom"],7,7,14,12]}}));
+    safe("actual route layer",()=>state.map.addLayer({id:"actual",type:"line",source:"actual",layout:{"line-cap":"round","line-join":"round"},paint:{"line-color":"#e85f36","line-width":["interpolate",["linear"],["zoom"],7,3.5,14,6]}}));
+
+    safe("checkpoint source",()=>state.map.addSource("pings",{type:"geojson",data:pingGeo()}));
+    safe("checkpoint dots",()=>state.map.addLayer({id:"pings",type:"circle",source:"pings",paint:{
       "circle-radius":["case",["==",["get","onTrail"],true],10,8],
       "circle-color":["case",["==",["get","onTrail"],true],"#e85f36","#efebe3"],
       "circle-stroke-color":["case",["==",["get","onTrail"],true],"#f6f3ec","#777a73"],
       "circle-stroke-width":2
-    }});
-    state.map.addLayer({id:"ping-numbers",type:"symbol",source:"pings",layout:{
+    }}));
+    safe("checkpoint labels",()=>state.map.addLayer({id:"ping-numbers",type:"symbol",source:"pings",layout:{
       "text-field":["get","label"],"text-size":9,"text-allow-overlap":true,"text-ignore-placement":true
     },paint:{
       "text-color":["case",["==",["get","onTrail"],true],"#ffffff","#5d6059"],
       "text-halo-color":["case",["==",["get","onTrail"],true],"#e85f36","#efebe3"],
       "text-halo-width":1
-    }});
+    }}));
+
     const clickPing=e=>{const id=e.features?.[0]?.properties?.id;if(id)selectPing(id)};
-    state.map.on("click","pings",clickPing);state.map.on("click","ping-numbers",clickPing);
     for(const layer of ["pings","ping-numbers"]){
+      if(!state.map.getLayer(layer))continue;
+      state.map.on("click",layer,clickPing);
       state.map.on("mouseenter",layer,()=>state.map.getCanvas().style.cursor="pointer");
       state.map.on("mouseleave",layer,()=>state.map.getCanvas().style.cursor="");
     }
-    updateWalker();
+    safe("walker",updateWalker);
   }
 
   function fitInitial(){
     if(!state.map)return;
-    const coords=state.route?.geometry?.coordinates||[],b=new maplibregl.LngLatBounds();coords.forEach(c=>b.extend(c));
+    const raw=state.route?.geometry?.coordinates||[],b=new maplibregl.LngLatBounds();
+    const coords=state.route?.geometry?.type==="MultiLineString"?raw.flat():raw;
+    for(const c of coords){if(Array.isArray(c)&&Number.isFinite(Number(c[0]))&&Number.isFinite(Number(c[1])))b.extend(c)}
     if(!b.isEmpty())state.map.fitBounds(b,{padding:{top:90,bottom:120,left:30,right:30},duration:850,maxZoom:11})
   }
 
@@ -883,6 +1042,37 @@
     show("editModal");
   }
 
+
+  async function saveCheckpoint(){
+    const id=$("#editPingId").value;if(!id)return;
+    const captured=$("#editCapturedAt").value;
+    const btn=$("#saveCheckpointBtn"),old=btn.textContent;btn.disabled=true;btn.textContent="Saving…";
+    try{
+      await manage({
+        action:"edit",
+        pingId:id,
+        note:$("#editNote").value,
+        isPublic:$("#editPublic").checked,
+        capturedAt:captured?new Date(captured).toISOString():undefined
+      });
+      hide("editModal");
+      await Promise.all([loadOwnerPings(),refreshData()]);
+      toast("Checkpoint updated");
+    }catch(e){toast(e.message)}finally{btn.disabled=false;btn.textContent=old}
+  }
+
+  async function deleteCheckpoint(id){
+    const p=state.ownerPings.find(x=>x.id===id);
+    if(!p)return;
+    const label=p.note?`“${p.note.slice(0,48)}${p.note.length>48?"…":""}”`:new Date(p.captured_at).toLocaleString();
+    if(!confirm(`Delete this checkpoint?\n\n${label}\n\nAttached photos will also be deleted.`))return;
+    try{
+      await manage({action:"delete",pingId:id});
+      if($("#editPingId").value===id)hide("editModal");
+      await Promise.all([loadOwnerPings(),refreshData()]);
+      toast("Checkpoint deleted");
+    }catch(e){toast(e.message)}
+  }
 
   function renderEditMedia(pingId){
     const grid=$("#editMediaGrid");if(!grid)return;
@@ -1005,7 +1195,7 @@
           <div class="selected-photo-wrap">
             <div class="selected-photo-head">
               <div class="selected-photo-title">Photos · ${photos.length}</div>
-              <div class="selected-photo-actions">
+              <div class="selected-photo-actions" style="${photos.length===1?"visibility:hidden":""}">
                 <button class="checkpoint-icon-btn" id="photoPrev" aria-label="Previous photo">‹</button>
                 <button class="checkpoint-icon-btn" id="photoNext" aria-label="Next photo">›</button>
               </div>
@@ -1013,10 +1203,10 @@
             <div class="selected-photo-track" id="selectedPhotoTrack">
               ${photos.map((m,i)=>`<button class="selected-photo-slide" data-selected-photo="${i}"><img src="${mediaUrl(m.storage_path)}" alt="Checkpoint ${no} photo ${i+1}"><span class="selected-photo-count">${i+1} / ${photos.length}</span></button>`).join("")}
             </div>
-            <div class="photo-dots" id="selectedPhotoDots">${photos.map((_,i)=>`<i class="photo-dot ${i===state.selectedPhotoIndex?"active":""}" data-photo-dot="${i}"></i>`).join("")}</div>
+            ${photos.length>1?`<div class="photo-dots" id="selectedPhotoDots">${photos.map((_,i)=>`<i class="photo-dot ${i===state.selectedPhotoIndex?"active":""}" data-photo-dot="${i}"></i>`).join("")}</div>`:""}
           </div>`:""}
       </div>`;
-    $("#selectedFocusBtn").onclick=()=>selectPing(p.id,{syncNav:false,snapSheet:false});
+    $("#selectedFocusBtn").onclick=()=>selectPing(p.id,{focusMap:true,openSummary:false});
     if(photos.length){
       const track=$("#selectedPhotoTrack");
       const updatePhotoUI=i=>{
@@ -1037,28 +1227,86 @@
     }
   }
 
-  function checkpointPhotos(pingId){return state.media.filter(m=>m.ping_id===pingId)}
-
-  function renderMapCheckpointRail(){
-    const rail=$("#mapCheckpointRail");if(!rail)return;
-    rail.innerHTML=state.pings.map((p,i)=>{
-      const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(i+1).padStart(2,"0");
-      const thumbs=photos.length?photos.slice(0,3).map(m=>`<span class="rail-thumb"><img src="${mediaUrl(m.storage_path)}" alt=""></span>`).join(""):`<span class="rail-thumb empty">${no}</span>`;
-      return `<article class="map-rail-card ${info.onTrail?"":"offtrail"} ${p.id===state.selectedPingId?"active":""}" data-map-checkpoint="${p.id}"><div class="map-rail-no">${no}</div><div class="rail-thumbs count-${Math.min(3,photos.length)}">${thumbs}</div><div class="rail-copy"><div class="rail-status">${info.onTrail?"On trail":"Off trail · excluded"}</div><div class="rail-title">${esc(p.note||`Checkpoint ${no}`)}</div><div class="rail-meta">${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"}</div></div></article>`
-    }).join("");
-    $$('[data-map-checkpoint]').forEach(card=>card.onclick=()=>selectPing(card.dataset.mapCheckpoint,{openSummary:true}));
-    syncMapCheckpointRail(state.selectedPingId,{behavior:"auto",scroll:false});bindMapRailScroll();
+  function checkpointPhotos(pingId){
+    return state.media
+      .filter(m=>m.ping_id===pingId)
+      .sort((a,b)=>(Number(a.sort_order||0)-Number(b.sort_order||0))||new Date(a.created_at)-new Date(b.created_at))
   }
-  function syncMapCheckpointRail(id,{behavior="smooth",scroll=true}={}){if(!id)return;$$('[data-map-checkpoint]').forEach(el=>el.classList.toggle('active',el.dataset.mapCheckpoint===id));const idx=Math.max(0,state.pings.findIndex(p=>p.id===id));$("#mapCheckpointPrev").disabled=!state.pings.length||idx<=0;$("#mapCheckpointNext").disabled=!state.pings.length||idx>=state.pings.length-1;if(scroll){const el=document.querySelector(`[data-map-checkpoint="${CSS.escape(id)}"]`);el?.scrollIntoView({behavior,block:"nearest",inline:"center"})}}
-  function bindMapRailScroll(){const rail=$("#mapCheckpointRail");if(!rail||rail.dataset.bound==="1")return;rail.dataset.bound="1";let timer;rail.addEventListener('scroll',()=>{clearTimeout(timer);timer=setTimeout(()=>{const cards=[...rail.querySelectorAll('[data-map-checkpoint]')];if(!cards.length)return;const center=rail.scrollLeft+rail.clientWidth/2;const nearest=cards.reduce((best,el)=>Math.abs(el.offsetLeft+el.offsetWidth/2-center)<Math.abs(best.offsetLeft+best.offsetWidth/2-center)?el:best,cards[0]);const id=nearest?.dataset.mapCheckpoint;if(id&&id!==state.selectedPingId)selectPing(id,{focusMap:false,openSummary:false,scrollRail:false})},120)},{passive:true})}
-  function navigateCheckpoint(delta){if(!state.pings.length)return;const current=Math.max(0,state.pings.findIndex(p=>p.id===state.selectedPingId));const next=Math.max(0,Math.min(state.pings.length-1,current+delta));selectPing(state.pings[next].id,{openSummary:true})}
-  function openSurface(name){const panel=$("#mapPanel");if(!panel)return;panel.classList.remove('hidden');panel.dataset.surface=name;$$('[data-surface]').forEach(el=>el.classList.toggle('active',el.dataset.surface===name));$$('[data-surface-tab]').forEach(el=>el.classList.toggle('active',el.dataset.surfaceTab===name))}
-  function closeSurface(){$("#mapPanel")?.classList.add('hidden')}
-  function setupPanelDrag(){const panel=$("#mapPanel"),handle=$("#mapPanelHandle");if(!panel||!handle)return;let active=false,startY=0,startH=0;const down=e=>{active=true;startY=e.clientY;startH=panel.getBoundingClientRect().height;panel.classList.add('dragging');handle.setPointerCapture?.(e.pointerId);e.preventDefault()};const move=e=>{if(!active)return;const min=220,max=Math.min(innerHeight*.72,680);panel.style.height=`${Math.max(min,Math.min(max,startH+(startY-e.clientY)))}px`;e.preventDefault()};const up=()=>{active=false;panel.classList.remove('dragging')};handle.addEventListener('pointerdown',down);handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',up);handle.addEventListener('pointercancel',up)}
-  function renderCheckpointList(){const list=$("#checkpointListView");if(!list)return;$("#checkpointNavMeta").textContent=`${state.pings.length} total · ${trailPings().length} on trail`;list.innerHTML=state.pings.map((p,i)=>{const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(i+1).padStart(2,"0");const thumbs=photos.length?photos.slice(0,2).map(m=>`<img src="${mediaUrl(m.storage_path)}" alt="">`).join(""):"";return `<div class="checkpoint-list-item ${p.id===state.selectedPingId?"active":""}" data-list-checkpoint="${p.id}"><div class="checkpoint-list-no">${no}</div><div class="list-thumbs ${photos.length?"":"empty"}">${thumbs||no}</div><div class="checkpoint-list-copy"><strong>${esc(p.note||`Checkpoint ${no}`)}</strong><span>${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"} · ${info.onTrail?fmt.format(info.km)+" km":"excluded"}</span></div><div class="checkpoint-list-status ${info.onTrail?"":"off"}">${info.onTrail?"Trail":"Off trail"}</div></div>`}).join("")||`<div style="padding:18px 0;font-size:11px;color:var(--muted)">No checkpoints yet.</div>`;$$('[data-list-checkpoint]').forEach(el=>el.onclick=()=>selectPing(el.dataset.listCheckpoint,{openSummary:true}))}
+
+  function checkpointPreviewHTML(photos,no,{limit=3}={}){
+    const shown=photos.slice(0,limit),count=shown.length;
+    if(!count)return `<span class="preview-empty">${no}</span>`;
+    return shown.map((m,i)=>`<span class="preview-image"><img data-preview-img src="${mediaUrl(m.storage_path)}" alt="Checkpoint ${no} preview ${i+1}" loading="lazy"></span>`).join("")
+      +(photos.length>limit?`<span class="preview-more">+${photos.length-limit}</span>`:"")
+  }
+
+  function hydratePreviewImages(root=document){
+    root.querySelectorAll?.("img[data-preview-img]").forEach(img=>{
+      const done=()=>img.classList.add("loaded");
+      if(img.complete&&img.naturalWidth)done();
+      else img.addEventListener("load",done,{once:true});
+      img.addEventListener("error",()=>{img.closest(".preview-image")?.classList.add("failed")},{once:true})
+    })
+  }
+
+  function renderCheckpointPill(){
+    const p=state.pings.find(x=>x.id===state.selectedPingId)||state.pings.at(-1);
+    const dock=$("#checkpointDock");if(!dock)return;
+    dock.classList.toggle("hidden",!p);
+    if(!p)return;
+    const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(info.index).padStart(2,"0");
+    $("#pillNumber").textContent=no;
+    $("#pillEyebrow").textContent=info.onTrail?"On trail":`Off trail · excluded`;
+    $("#pillEyebrow").classList.toggle("off",!info.onTrail);
+    $("#pillTitle").textContent=p.note||`Checkpoint ${no}`;
+    $("#pillMeta").textContent=`${dayLabel(p.captured_at)} · ${new Date(p.captured_at).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})} · ${photos.length} photo${photos.length===1?"":"s"}`;
+    const pillPreview=$("#pillThumbs");
+    const previewCount=Math.min(3,photos.length);
+    pillPreview.className=`pill-thumbs checkpoint-preview preview-${previewCount}`;
+    pillPreview.innerHTML=checkpointPreviewHTML(photos,no,{limit:3});
+    hydratePreviewImages(pillPreview);
+    const idx=state.pings.findIndex(x=>x.id===p.id);$("#mapCheckpointPrev").disabled=idx<=0;$("#mapCheckpointNext").disabled=idx<0||idx>=state.pings.length-1;
+  }
+  function navigateCheckpoint(delta){
+    if(!state.pings.length)return;
+    const current=Math.max(0,state.pings.findIndex(p=>p.id===state.selectedPingId));
+    const next=Math.max(0,Math.min(state.pings.length-1,current+delta));
+    selectPing(state.pings[next].id,{openSummary:false})
+  }
+  function openSurface(name){
+    const panel=$("#mapPanel");if(!panel)return;
+    panel.classList.add("expanded");panel.dataset.surface=name;
+    $$('[data-surface]').forEach(el=>el.classList.toggle('active',el.dataset.surface===name));
+    $$('[data-surface-tab]').forEach(el=>el.classList.toggle('active',el.dataset.surfaceTab===name));
+  }
+  function closeSurface(){$("#mapPanel")?.classList.remove("expanded")}
+  function toggleCheckpointSheet(){const p=$("#mapPanel");if(!p)return;p.classList.contains("expanded")?closeSurface():openSurface("summary")}
+  function setupPanelDrag(){
+    const panel=$("#mapPanel"),handle=$("#mapPanelHandle");if(!panel||!handle)return;
+    let active=false,startY=0,startH=0;
+    const down=e=>{if(!panel.classList.contains("expanded"))return;active=true;startY=e.clientY;startH=panel.getBoundingClientRect().height;panel.classList.add("dragging");handle.setPointerCapture?.(e.pointerId);e.preventDefault()};
+    const move=e=>{if(!active)return;const min=250,max=Math.min(innerHeight*.76,700);panel.style.height=`${Math.max(min,Math.min(max,startH+(startY-e.clientY)))}px`;e.preventDefault()};
+    const up=e=>{if(!active)return;const dy=e.clientY-startY;active=false;panel.classList.remove("dragging");if(dy>90){panel.style.height="";closeSurface()}};
+    handle.addEventListener("pointerdown",down);handle.addEventListener("pointermove",move);handle.addEventListener("pointerup",up);handle.addEventListener("pointercancel",up)
+  }
+  function renderCheckpointList(){
+    const list=$("#checkpointListView");if(!list)return;
+    $("#checkpointNavMeta").textContent=`${state.pings.length} total · ${trailPings().length} on trail`;
+    list.innerHTML=state.pings.map((p,i)=>{
+      const info=checkpointInfo(p),photos=checkpointPhotos(p.id),no=String(i+1).padStart(2,"0"),previewCount=Math.min(3,photos.length);
+      return `<div class="checkpoint-list-item ${p.id===state.selectedPingId?"active":""}" data-list-checkpoint="${p.id}">
+        <div class="checkpoint-list-no">${no}</div>
+        <div class="list-thumbs checkpoint-preview preview-${previewCount}">${checkpointPreviewHTML(photos,no,{limit:3})}</div>
+        <div class="checkpoint-list-copy"><strong>${esc(p.note||`Checkpoint ${no}`)}</strong><span>${dayLabel(p.captured_at)} · ${photos.length} photo${photos.length===1?"":"s"} · ${info.onTrail?fmt.format(info.km)+" km":"excluded"}</span></div>
+        <div class="checkpoint-list-status ${info.onTrail?"":"off"}">${info.onTrail?"Trail":"Off trail"}</div>
+      </div>`
+    }).join("")||`<div style="padding:18px 0;font-size:11px;color:var(--muted)">No checkpoints yet.</div>`;
+    hydratePreviewImages(list);
+    $$("[data-list-checkpoint]").forEach(el=>el.onclick=()=>selectPing(el.dataset.listCheckpoint,{openSummary:true}))
+  }
 
   function renderAll(){
-    const lastOverall=state.pings.at(-1);$("#previewLabel").classList.toggle("hidden",!state.usingPreview);$("#ownerLast").textContent=lastOverall?age(lastOverall.captured_at):"—";$("#tripTitleInput").value=state.trip.title||"";$("#tripSubtitleInput").value=state.trip.subtitle||"";if(!state.pings.some(p=>p.id===state.selectedPingId))state.selectedPingId=lastOverall?.id||null;renderVisitor();renderKpis();renderMapCheckpointRail();renderCheckpointList();renderSelectedPing();renderDays();renderElevation();$("#checkpointGateNote").textContent=`Only checkpoints within ${trailRadiusKm()} km of the ${state.usingPreview?"preview":"uploaded"} route count toward trail KPIs. Off-trail checkpoints stay in the story.`
+    const lastOverall=state.pings.at(-1);$("#previewLabel").classList.toggle("hidden",!state.usingPreview);$("#ownerLast").textContent=lastOverall?age(lastOverall.captured_at):"—";$("#tripTitleInput").value=state.trip.title||"";$("#tripSubtitleInput").value=state.trip.subtitle||"";if(!state.pings.some(p=>p.id===state.selectedPingId))state.selectedPingId=lastOverall?.id||null;renderVisitor();renderKpis();renderCheckpointPill();renderCheckpointList();renderSelectedPing();renderDays();renderElevation();$("#checkpointGateNote").textContent=`Only checkpoints within ${trailRadiusKm()} km of the ${state.usingPreview?"preview":"uploaded"} route count toward trail KPIs. Off-trail checkpoints stay in the story.`
   }
 
   function renderDays(){
@@ -1069,21 +1317,29 @@
     }).join("")||`<div class="day"><b>Trail stats</b><strong>—</strong><small>No on-trail checkpoints yet</small></div>`
   }
 
-  function selectPing(id,{focusMap=true,openSummary=true,scrollRail=true}={}){const p=state.pings.find(x=>x.id===id);if(!p)return;const changed=state.selectedPingId!==id;state.selectedPingId=id;if(changed)state.selectedPhotoIndex=0;renderSelectedPing();renderCheckpointList();syncMapCheckpointRail(id,{scroll:scrollRail});if(focusMap&&state.map)state.map.easeTo({center:[p.lon,p.lat],zoom:13.8,pitch:state.view3d?52:0,duration:550});if(openSummary)openSurface("summary")}
+  function selectPing(id,{focusMap=true,openSummary=true}={}){
+    const p=state.pings.find(x=>x.id===id);if(!p)return;
+    const changed=state.selectedPingId!==id;state.selectedPingId=id;if(changed)state.selectedPhotoIndex=0;
+    renderCheckpointPill();renderSelectedPing();renderCheckpointList();
+    if(focusMap&&state.map)state.map.easeTo({center:[p.lon,p.lat],zoom:13.8,pitch:state.view3d?52:0,duration:550});
+    if(openSummary)openSurface("summary")
+  }
 
   async function refreshData(){
     if(!state.trip)return;
-    const [p,m,pr,t,v]=await Promise.all([
-      sb.from("fisher_pings").select("*").eq("trip_id",state.trip.id).eq("is_public",true).order("captured_at",{ascending:true}),
-      sb.from("fisher_media").select("*").eq("trip_id",state.trip.id).eq("is_public",true).order("created_at",{ascending:true}),
-      sb.from("fisher_profile").select("*").eq("trip_id",state.trip.id).maybeSingle(),
-      sb.from("fisher_trip").select("*").eq("id",state.trip.id).single(),
-      sb.from("fisher_visits").select("*").eq("trip_id",state.trip.id).maybeSingle()
-    ]);
-    state.pings=p.data||state.pings;state.media=m.data||state.media;state.profile=pr.data||state.profile;state.visits=v.data?.total??state.visits;
-    const old=JSON.stringify(state.route);state.trip=t.data||state.trip;state.route=state.trip.route_geojson||PREVIEW_ROUTE;state.usingPreview=!state.trip.route_geojson;state.routeKm=state.trip.planned_distance_km?Number(state.trip.planned_distance_km):turf.length(state.route,{units:"kilometers"});
-    if(old!==JSON.stringify(state.route)&&state.map?.getSource("planned")){state.map.getSource("planned").setData(state.route);await buildElevation()}
-    state.map?.getSource("actual")?.setData(actualGeo());state.map?.getSource("pings")?.setData(pingGeo());updateWalker();renderAll()
+    try{
+      const [pings,media,profiles,trips,visits]=await Promise.all([
+        restGet("fisher_pings",{select:"*",trip_id:`eq.${state.trip.id}`,is_public:"eq.true",order:"captured_at.asc"}),
+        restGet("fisher_media",{select:"*",trip_id:`eq.${state.trip.id}`,is_public:"eq.true",order:"created_at.asc"}),
+        restGet("fisher_profile",{select:"*",trip_id:`eq.${state.trip.id}`,limit:"1"}),
+        restGet("fisher_trip",{select:"*",id:`eq.${state.trip.id}`,limit:"1"}),
+        restGet("fisher_visits",{select:"*",trip_id:`eq.${state.trip.id}`,limit:"1"})
+      ]);
+      state.pings=pings||state.pings;state.media=media||state.media;state.profile=profiles?.[0]||state.profile;state.visits=visits?.[0]?.total??state.visits;
+      const old=JSON.stringify(state.route);state.trip=trips?.[0]||state.trip;state.route=state.trip.route_geojson||PREVIEW_ROUTE;state.usingPreview=!state.trip.route_geojson;state.routeKm=state.trip.planned_distance_km?Number(state.trip.planned_distance_km):turf.length(state.route,{units:"kilometers"});
+      if(old!==JSON.stringify(state.route)&&state.map?.getSource("planned")){state.map.getSource("planned").setData(state.route);await buildElevation()}
+      state.map?.getSource("actual")?.setData(actualGeo());state.map?.getSource("pings")?.setData(pingGeo());updateWalker();renderAll()
+    }catch(e){console.warn("Public refresh failed:",e)}
   }
 
   async function login(){
@@ -1112,6 +1368,7 @@
     onProgress(8,"signing");
     const s=await admin("upload-url",{kind:"photo",pingId,type:file.type||"image/jpeg",size:file.size});
     onProgress(28,"uploading");
+    if(!sb)throw new Error("Photo upload client unavailable — reload and try again");
     const up=await sb.storage.from(MEDIA_BUCKET).uploadToSignedUrl(s.path,s.token,file,{contentType:file.type||"image/jpeg"});
     if(up.error)throw up.error;
     onProgress(82,"saving");
@@ -1249,11 +1506,12 @@
   }
 
   function bind(){
-    $("#ownerBtn").onclick=()=>state.owner?(show("ownerModal"),loadOwnerPings()):show("loginModal");$("#shareBtn").onclick=shareTrip;$("#statsOpenBtn").onclick=()=>openSurface("stats");$("#listOpenBtn").onclick=()=>openSurface("list");$("#mapPanelClose").onclick=closeSurface;$$('[data-surface-tab]').forEach(btn=>btn.onclick=()=>openSurface(btn.dataset.surfaceTab));$("#mapCheckpointPrev").onclick=()=>navigateCheckpoint(-1);$("#mapCheckpointNext").onclick=()=>navigateCheckpoint(1);$("#pingFab").onclick=()=>state.owner&&startCapture();$("#loginSubmit").onclick=login;$("#logoutBtn").onclick=logout;$("#saveTripBtn").onclick=saveTrip;$("#avatarInput").onchange=changeAvatar;$("#routeInput").onchange=uploadRoute;$("#saveCheckpointBtn").onclick=saveCheckpoint;$("#deleteCheckpointBtn").onclick=()=>deleteCheckpoint($("#editPingId").value);$("#editAddPhotosBtn").onclick=()=>$("#editPhotoInput").click();$("#editPhotoInput").onchange=async e=>{const id=$("#editPingId").value;await addPhotosToExisting(id,[...e.target.files]);e.target.value=""};$$('[data-close]').forEach(b=>b.onclick=()=>hide(b.dataset.close));$$('.modal-wrap').forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});$$('[data-view]').forEach(btn=>btn.onclick=()=>{if(!state.map)return;state.view3d=btn.dataset.view==="3d";$$('[data-view]').forEach(b=>b.classList.toggle('active',b===btn));state.map.easeTo({pitch:state.view3d?52:0,bearing:state.view3d?-10:0,duration:600});try{state.map.setTerrain(state.view3d?{source:"terrain",exaggeration:1.10}:null)}catch{}});$("#followBtn").onclick=()=>{if(!state.map)return;state.follow=!state.follow;if(state.follow&&state.pings.length){const p=state.pings.at(-1);state.map.easeTo({center:[p.lon,p.lat],zoom:13.4,pitch:state.view3d?52:0})}};$("#addPhotosBtn").onclick=()=>$("#photoInput").click();$("#photoInput").onchange=async e=>{await uploadPhotos([...e.target.files]);e.target.value=""};$("#continueNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#backToPhotosBtn").onclick=()=>{goStep("stepPhotos");setCaptureStage("photos")};$("#continueReviewBtn").onclick=continueToReview;$("#backToNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#finishCheckpointBtn").onclick=finishCapture;$("#discardCheckpointBtn").onclick=discardCurrentCheckpoint;$("#galleryClose").onclick=closeGallery;$("#galleryPrev").onclick=()=>galleryMove(-1);$("#galleryNext").onclick=()=>galleryMove(1);$("#galleryModal").onclick=e=>{if(e.target===$("#galleryModal")||e.target.classList.contains("lightbox-main"))closeGallery()};addEventListener("keydown",e=>{if(!$("#galleryModal").classList.contains("show"))return;if(e.key==="Escape")closeGallery();if(e.key==="ArrowLeft")galleryMove(-1);if(e.key==="ArrowRight")galleryMove(1)});setupPanelDrag()
+    $("#ownerBtn").onclick=()=>state.owner?(show("ownerModal"),loadOwnerPings()):show("loginModal");$("#shareBtn").onclick=shareTrip;$("#statsOpenBtn").onclick=()=>openSurface("stats");$("#listOpenBtn").onclick=()=>openSurface("list");$("#mapPanelClose").onclick=closeSurface;$("#checkpointPill").onclick=toggleCheckpointSheet;$$('[data-surface-tab]').forEach(btn=>btn.onclick=()=>openSurface(btn.dataset.surfaceTab));$("#mapCheckpointPrev").onclick=()=>navigateCheckpoint(-1);$("#mapCheckpointNext").onclick=()=>navigateCheckpoint(1);$("#pingFab").onclick=()=>state.owner&&startCapture();$("#loginSubmit").onclick=login;$("#logoutBtn").onclick=logout;$("#saveTripBtn").onclick=saveTrip;$("#avatarInput").onchange=changeAvatar;$("#routeInput").onchange=uploadRoute;$("#saveCheckpointBtn").onclick=saveCheckpoint;$("#deleteCheckpointBtn").onclick=()=>deleteCheckpoint($("#editPingId").value);$("#editAddPhotosBtn").onclick=()=>$("#editPhotoInput").click();$("#editPhotoInput").onchange=async e=>{const id=$("#editPingId").value;await addPhotosToExisting(id,[...e.target.files]);e.target.value=""};$$('[data-close]').forEach(b=>b.onclick=()=>hide(b.dataset.close));$$('.modal-wrap').forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});$$('[data-view]').forEach(btn=>btn.onclick=()=>{if(!state.map)return;state.view3d=btn.dataset.view==="3d";$$('[data-view]').forEach(b=>b.classList.toggle('active',b===btn));state.map.easeTo({pitch:state.view3d?52:0,bearing:state.view3d?-10:0,duration:600});try{state.map.setTerrain(state.view3d?{source:"terrain",exaggeration:1.10}:null)}catch{}});$("#followBtn").onclick=()=>{if(!state.map)return;state.follow=!state.follow;if(state.follow&&state.pings.length){const p=state.pings.at(-1);state.map.easeTo({center:[p.lon,p.lat],zoom:13.4,pitch:state.view3d?52:0})}};$("#addPhotosBtn").onclick=()=>$("#photoInput").click();$("#photoInput").onchange=async e=>{await uploadPhotos([...e.target.files]);e.target.value=""};$("#continueNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#backToPhotosBtn").onclick=()=>{goStep("stepPhotos");setCaptureStage("photos")};$("#continueReviewBtn").onclick=continueToReview;$("#backToNoteBtn").onclick=()=>{goStep("stepNote");setCaptureStage("note")};$("#finishCheckpointBtn").onclick=finishCapture;$("#discardCheckpointBtn").onclick=discardCurrentCheckpoint;$("#galleryClose").onclick=closeGallery;$("#galleryPrev").onclick=()=>galleryMove(-1);$("#galleryNext").onclick=()=>galleryMove(1);$("#galleryModal").onclick=e=>{if(e.target===$("#galleryModal")||e.target.classList.contains("lightbox-main"))closeGallery()};addEventListener("keydown",e=>{if(!$("#galleryModal").classList.contains("show"))return;if(e.key==="Escape")closeGallery();if(e.key==="ArrowLeft")galleryMove(-1);if(e.key==="ArrowRight")galleryMove(1)});setupPanelDrag()
   }
 
   function realtime(){
     try{
+      if(!sb)return setInterval(refreshData,45000);
       sb.channel("fisher-live")
         .on("postgres_changes",{event:"*",schema:"public",table:"fisher_pings",filter:`trip_id=eq.${state.trip.id}`},refreshData)
         .on("postgres_changes",{event:"*",schema:"public",table:"fisher_media",filter:`trip_id=eq.${state.trip.id}`},refreshData)
@@ -1264,23 +1522,33 @@
   }
 
   async function boot(){
+    const loaderFailsafe=setTimeout(dismissLoader,5500);
     $("#pingFab").hidden=true;
-    bind();
+
+    // UI controls are non-critical: a broken owner/admin handler must never block
+    // the public Supabase data or MapLibre boot path.
+    try{bind()}catch(e){
+      console.error("UI binding failed:",e);
+    }
+
     try{
       await loadData();
+      renderAll();
+      dismissLoader();
+      realtime();
       await loadMapLibre();
       initMap();
-      renderAll();
-      realtime();
     }catch(e){
       console.error(e);
-      $("#loading").classList.add("hide");
+      dismissLoader();
       $$(".map-top button").forEach(btn=>{
         btn.disabled=true;
         btn.style.opacity=".45";
         btn.style.cursor="not-allowed";
       });
       toast(e?.message || "Could not load the interactive map");
+    }finally{
+      clearTimeout(loaderFailsafe);
     }
   }
   boot()
